@@ -1677,17 +1677,8 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Home\Gallery.cshtml" />
-    <Content Include="Views\Home\Products.cshtml" />
-    <Content Include="Views\Home\ProductDetails.cshtml" />
-    <Content Include="Views\Home\ProductCategory.cshtml" />
     <Content Include="Views\Partial\_ourclients.cshtml" />
     <Content Include="Views\Partial\_specialpriceadds.cshtml" />
-    <Content Include="Views\Home\Clients.cshtml" />
-    <Content Include="Views\Home\SubCategory.cshtml" />
     <Content Include="Views\Auth\Login.cshtml" />
     <Content Include="Views\Shared\_Main_Layout.cshtml" />
     <Content Include="Views\Home\benq.cshtml" />
