@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BH.Models
 {
-    public class ProductType
+    public class ProductTypeModel
     {
         [Key]
         public int TypeID { get; set; }

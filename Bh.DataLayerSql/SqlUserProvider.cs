@@ -8,7 +8,7 @@ using BH.DataLayerSql;
 
 namespace BH.DataLayerSql
 {
-    public class SqlUserProvider : IUserProvider
+    public class SqlUserProvider : IUsersProvider
     {
         public BH.Models.User GetUserByUserNameNPassword(string username, string password)
         {
