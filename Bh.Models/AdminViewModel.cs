@@ -6,6 +6,7 @@ namespace BH.Models
 {
     public class AdminViewModel
     {
+
         /*public Banner Banner { get; set; }
         public AboutUs AboutUs { get; set; }
         public OurClient Clients { get; set; }
