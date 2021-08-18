@@ -10,5 +10,6 @@ namespace BH.DataLayer
     public interface ICompanyDetailsProvider
     {
         CompanyDetailsModel GetCompanyDetails(long id);
+
     }
 }
