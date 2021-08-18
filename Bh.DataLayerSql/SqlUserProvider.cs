@@ -4,11 +4,10 @@ using System.Data.SqlClient;
 using BH.DataLayer;
 using BH.DataLayerSql;
 using BH.Utility;
-using BH.DataLayerSql;
 
 namespace BH.DataLayerSql
 {
-    public class SqlUserProvider : IUsersProvider
+    public class SqlUserProvider : IUserProvider
     {
         public BH.Models.User GetUserByUserNameNPassword(string username, string password)
         {
