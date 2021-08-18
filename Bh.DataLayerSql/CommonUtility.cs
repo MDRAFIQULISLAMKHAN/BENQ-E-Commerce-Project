@@ -17,6 +17,12 @@ namespace BH.DataLayerSql
         // Users
         public static string GetUserByUsernamePassword = "sp_GetUserByUsernamePassword";
 
+
+        // Company Details
+        public static string GetCompanyDetails = "sp_GetCompanyDetailbyID";
+     
+
+
         /*// Banner
         public static string GetBannerById = "sp_GetBannerDetails";
         public static string InsertBanner = "sp_InsertBanner";
