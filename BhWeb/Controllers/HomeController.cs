@@ -15,9 +15,14 @@ namespace BhWeb.Controllers
 
         public ActionResult Index()
         {
+            PublicViewModel publicViewModel = new PublicViewModel();
             return View("~/Views/Home/benq.cshtml");
         }
 
+        public ActionResult Headertop()
+        {
+            return PartialView();
+        }
 
 
         /*public ActionResult Index()
