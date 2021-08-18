@@ -4,6 +4,7 @@ using System.Net.Mail;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Web.Mvc;
+using BH.BusinessLayer;
 using Newtonsoft.Json;
 using BH.Models;
 using Vereyon.Web;
@@ -16,6 +17,7 @@ namespace BhWeb.Controllers
         public ActionResult Index()
         {
             PublicViewModel publicViewModel = new PublicViewModel();
+            publicViewModel.CompanyDetails = CompanyDetailsManager.GetCompanyDetails(1);
             return View("~/Views/Home/benq.cshtml");
         }
 

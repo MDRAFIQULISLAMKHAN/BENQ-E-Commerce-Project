@@ -1,6 +1,14 @@
 ﻿@{
     ViewBag.Title = "benq";
     Layout = "~/Views/Shared/_Main_Layout.cshtml";
+
+    BH.Models.CompanyDetailsModel companyDetails = (BH.Models.CompanyDetailsModel)Session["CompanyDetails"];
+
+    if (companyDetails == null)
+    {
+        companyDetails = BH.BusinessLayer.CompanyDetailsManager.GetCompanyDetails(1);
+        Session["CompanyDetails"] = companyDetails;
+    }
 }
 
 <header class="header header-6">

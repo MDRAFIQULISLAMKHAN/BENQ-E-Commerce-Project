@@ -6,6 +6,9 @@ namespace BH.Models
 {
     public class PublicViewModel
     {
+
+        public CompanyDetailsModel CompanyDetails { get; set; }
+
         /*public List<Banner> Banners { get; set; }
         public AboutUs AboutUs { get; set; }
         public OurClient Clients { get; set; }
