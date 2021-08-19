@@ -41,7 +41,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ICompanyDetailsProvider.cs" />
+    <Compile Include="IBannerProvider.cs" />
+    <Compile Include="IBrandProvider.cs" />
+    <Compile Include="IManufacturersProvider.cs" />
+    <Compile Include="IProductCategoriesProvider.cs" />
+    <Compile Include="IProductGalleryProvider.cs" />
+    <Compile Include="IProductProvider.cs" />
+    <Compile Include="IProductSubCategoriesProvider.cs" />
+    <Compile Include="IProductTypeProvider.cs" />
+    <Compile Include="ISaleProvider.cs" />
+    <Compile Include="ITaxCategoryProvider.cs" />
     <Compile Include="IUserProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

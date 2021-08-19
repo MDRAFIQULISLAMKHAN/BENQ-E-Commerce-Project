@@ -4,7 +4,6 @@ using System.Data.SqlClient;
 using BH.DataLayer;
 using BH.DataLayerSql;
 using BH.Utility;
-using BH.DataLayerSql;
 
 namespace BH.DataLayerSql
 {

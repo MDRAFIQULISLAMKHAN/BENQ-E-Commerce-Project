@@ -6,31 +6,28 @@ namespace BH.Models
 {
     public class AdminViewModel
     {
+        public BannerModel Banner { get; set; }
+        public List<BannerModel> BannerList { get; set; }
+        public BrandModel Brand { get; set; }
+        public List<BrandModel> BrandList { get; set; }
+        public CompanyDetailsModel CompanyDetails { get; set; }
+        public ManufacturersModel Manufacturers { get; set; }
+        public List<ManufacturersModel> ManufacturersList { get; set; }
+        public ProductModel Product { get; set; }
+        public List<ProductModel> ProductList { get; set; }
+        public ProductCategoriesModel ProductCategories { get; set; }
+        public List<ProductCategoriesModel> ProductCategoriesList { get; set; }
+        public ProductSubCategoriesModel ProductSubCategories { get; set; }
+        public List<ProductSubCategoriesModel> ProductSubCategoriesList { get; set; }
+        public ProductGalleryModel ProductGallery { get; set; }
+        public List<ProductGalleryModel> ProductGalleryList { get; set; }
+        public SaleModel Sale { get; set; }
+        public List<SaleModel> SaleList { get; set; }
+        public TaxCategoryModel TaxCategory { get; set; }
+        public List<TaxCategoryModel> TaxCategoryList { get; set; }
+        public UsersModel Users { get; set; }
+        public List<UsersModel> UsersList { get; set; }
 
-        /*public Banner Banner { get; set; }
-        public AboutUs AboutUs { get; set; }
-        public OurClient Clients { get; set; }
-        public OurClientsBanner ClientsBanner { get; set; }
-        public List<OurClient> ClientList { get; set; }
-        public CompanySetting CompanySetting { get; set; }
-        public OurMachine Machines { get; set; }
-        public List<OurMachine> MachineList { get; set; }
-        public List<Feedback> FeedbackList { get; set; }
-        public OurService Service { get; set; }
-        public List<OurService> ServiceList { get; set; }
-        public Project Project { get; set; }
-        public List<Project> ProjectList { get; set; }
-        public ProjectCategory ProjectCategory { get; set; }
-        public List<ProjectCategory> ProjectCategoryList { get; set; }
-        public ProjectGallery ProjectGallery { get; set; }
-        public List<ProjectGallery> ProjectGalleryList { get; set; }
-        public OwnerImage OwnerImage { get; set; }
-        public SliderBgImgUrl SliderBgImgUrl { get; set; }
 
-        [Required(AllowEmptyStrings = false, ErrorMessage = "Image Required")]
-        public IEnumerable<HttpPostedFileBase> Files { get; set; }
-
-        [Required(AllowEmptyStrings = false, ErrorMessage = "Image Required")]
-        public HttpPostedFileBase File { get; set; }*/
     }
 }
