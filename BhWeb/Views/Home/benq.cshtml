@@ -9,13 +9,16 @@
         companyDetails = BH.BusinessLayer.CompanyDetailsManager.GetCompanyDetails(1);
         Session["CompanyDetails"] = companyDetails;
     }
-}
 
+}
+@using System.Collections
+@using System.Web.Mvc.Html
+@model BH.Models.PublicViewModel
 <header class="header header-6">
 
 
     @{
-        Html.RenderPartial("~/Views/Partial/_HeaderTopMenu.cshtml");
+        Html.RenderPartial("~/Views/Partial/_HeaderTopMenu.cshtml", Model);
     }
     <div class="header-middle">
         <div class="container">
