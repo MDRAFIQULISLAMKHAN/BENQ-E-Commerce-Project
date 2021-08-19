@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="IBannerProvider.cs" />
     <Compile Include="IBrandProvider.cs" />
+    <Compile Include="ICompanyDetailsProvider.cs" />
     <Compile Include="IManufacturersProvider.cs" />
     <Compile Include="IProductCategoriesProvider.cs" />
     <Compile Include="IProductGalleryProvider.cs" />
