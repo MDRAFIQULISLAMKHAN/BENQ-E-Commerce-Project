@@ -6,24 +6,8 @@ namespace BH.Models
 {
     public class PublicViewModel
     {
-        public BannerModel Banner { get; set; }
-        public List<BannerModel> BannerList { get; set; }
-        public BrandModel Brand { get; set; }
-        public List<BrandModel> BrandList { get; set; }
+
         public CompanyDetailsModel CompanyDetails { get; set; }
-        public ManufacturersModel Manufacturers { get; set; }
-        public List<ManufacturersModel> ManufacturersList { get; set; }
-        public ProductModel Product { get; set; }
-        public List<ProductModel> ProductList { get; set; }
-        public ProductCategoriesModel ProductCategories { get; set; }
-        public List<ProductCategoriesModel> ProductCategoriesList { get; set; }
-        public ProductSubCategoriesModel ProductSubCategories { get; set; }
-        public List<ProductSubCategoriesModel> ProductSubCategoriesList { get; set; }
-        public ProductGalleryModel ProductGallery { get; set; }
-        public List<ProductGalleryModel> ProductGalleryList { get; set; }
-        public SaleModel Sale { get; set; }
-        public TaxCategoryModel TaxCategory { get; set; }
-        public UsersModel Users { get; set; }
 
         /*public List<Banner> Banners { get; set; }
         public AboutUs AboutUs { get; set; }

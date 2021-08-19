@@ -4,27 +4,29 @@ using System.Data.SqlClient;
 using BH.DataLayer;
 using BH.DataLayerSql;
 using BH.Utility;
+using BH.Models;
 
 namespace BH.DataLayerSql
 {
-    public class SqlUserProvider : IUserProvider
+    public class SqlCompanyDetailsProvider : ICompanyDetailsProvider
     {
-        public BH.Models.User GetUserByUserNameNPassword(string username, string password)
+
+
+        public CompanyDetailsModel GetCompanyDetails(long Id)
         {
             using (SqlConnection connection = new SqlConnection(CommonUtility.ConnectionString))
             {
-                SqlCommand command = new SqlCommand(StoreProcedure.GetUserByUsernamePassword, connection);
+                SqlCommand command = new SqlCommand(StoreProcedure.GetCompanyDetails, connection);
                 command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.Add(new SqlParameter("@Username", username));
-                command.Parameters.Add(new SqlParameter("@Password", password));
+                command.Parameters.Add(new SqlParameter("@CompanyDetailsID", Id));
 
                 try
                 {
                     connection.Open();
                     SqlDataReader reader = command.ExecuteReader();
-                    BH.Models.User user = new BH.Models.User();
-                    user = UtilityManager.DataReaderMap<BH.Models.User>(reader);
-                    return user;
+                    CompanyDetailsModel client = new CompanyDetailsModel();
+                    client = UtilityManager.DataReaderMap<CompanyDetailsModel>(reader);
+                    return client;
                 }
                 catch (Exception e)
                 {
@@ -36,5 +38,7 @@ namespace BH.DataLayerSql
                 }
             }
         }
+
     }
+
 }
