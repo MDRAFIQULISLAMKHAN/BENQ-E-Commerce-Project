@@ -5,28 +5,28 @@ using System.Text;
 using System.Threading.Tasks;
 using BH.Models;
 using BH.DataLayer;
-using System.Data.SqlClient;
-using System.Data;
 using BH.Utility;
-
+using System.Data;
+using System.Data.SqlClient;
 namespace BH.DataLayerSql
 {
-    public class SqlManufacturerProvider : IManufacturersProvider
+    public class SqlProductGalleryProvider : IProductGalleryProvider
     {
-        public List<ManufacturersModel> GetAllManufacturers()
+        
+        public List<ProductGalleryModel> GetAllProductGallery()
         {
             using (SqlConnection connection = new SqlConnection(CommonUtility.ConnectionString))
             {
-                SqlCommand command = new SqlCommand(StoreProcedure.GetAllManufacturers, connection);
+                SqlCommand command = new SqlCommand(StoreProcedure.GetAllProductGallery, connection);
                 command.CommandType = CommandType.StoredProcedure;
 
                 try
                 {
                     connection.Open();
                     SqlDataReader dataReader = command.ExecuteReader();
-                    List<ManufacturersModel> manufacturersList = new List<ManufacturersModel>();
-                    manufacturersList = UtilityManager.DataReaderMapToList<ManufacturersModel>(dataReader);
-                    return manufacturersList;
+                    List<ProductGalleryModel> productgalleryList= new List<ProductGalleryModel>();
+                    productgalleryList = UtilityManager.DataReaderMapToList<ProductGalleryModel>(dataReader);
+                    return productgalleryList;
                 }
                 catch (Exception e)
                 {
@@ -40,21 +40,21 @@ namespace BH.DataLayerSql
             }
         }
 
-        public ManufacturersModel GetManufacturersById(long Id)
+        public ProductGalleryModel GetProductGalleryById(long Id)
         {
             using (SqlConnection connection = new SqlConnection(CommonUtility.ConnectionString))
             {
-                SqlCommand command = new SqlCommand(StoreProcedure.GetManufacturersById, connection);
+                SqlCommand command = new SqlCommand(StoreProcedure.GetProductGalleryById, connection);
                 command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.Add(new SqlParameter("@ManufacturersID", Id));
+                command.Parameters.Add(new SqlParameter("@ProductGalleryID", Id));
 
                 try
                 {
                     connection.Open();
                     SqlDataReader reader = command.ExecuteReader();
-                    ManufacturersModel manufacturers = new ManufacturersModel();
-                    manufacturers = UtilityManager.DataReaderMap<ManufacturersModel>(reader);
-                    return manufacturers;
+                    ProductGalleryModel productgallery = new ProductGalleryModel();
+                    productgallery = UtilityManager.DataReaderMap<ProductGalleryModel>(reader);
+                    return productgallery;
                 }
                 catch (Exception e)
                 {
@@ -67,22 +67,22 @@ namespace BH.DataLayerSql
             }
         }
 
-        public long InsertManufacturers(ManufacturersModel Manufacturers)
+        public long InsertProductGallery(ProductGalleryModel Productgallery)
         {
             long id = 0;
             using (SqlConnection connection = new SqlConnection(CommonUtility.ConnectionString))
             {
-                SqlCommand command = new SqlCommand(StoreProcedure.InsertManufacturers, connection);
+                SqlCommand command = new SqlCommand(StoreProcedure.InsertProductGallery, connection);
                 command.CommandType = CommandType.StoredProcedure;
-                SqlParameter returnValue = new SqlParameter("@" + "ManufacturersID", SqlDbType.Int);
+                SqlParameter returnValue = new SqlParameter("@" + "ProductGalleryID", SqlDbType.Int);
                 returnValue.Direction = ParameterDirection.Output;
                 command.Parameters.Add(returnValue);
-                foreach (var item in Manufacturers.GetType().GetProperties())
+                foreach (var item in Productgallery.GetType().GetProperties())
                 {
-                    if (item.Name != "Id")
+                    if (item.Name != "ProductGalleryID")
                     {
                         string name = item.Name;
-                        var value = item.GetValue(Manufacturers, null);
+                        var value = item.GetValue(Productgallery, null);
 
                         command.Parameters.Add(new SqlParameter("@" + name, value == null ? DBNull.Value : value));
                     }
@@ -91,7 +91,7 @@ namespace BH.DataLayerSql
                 {
                     connection.Open();
                     command.ExecuteNonQuery();
-                    id = (int)command.Parameters["@ManufacturersID"].Value;
+                    id = (int)command.Parameters["@ProductGalleryID"].Value;
                 }
                 catch (Exception ex)
                 {
@@ -105,19 +105,19 @@ namespace BH.DataLayerSql
             return id;
         }
 
-        public bool UpdateManufacturers(ManufacturersModel manuFacturers)
+        public bool UpdateProductGallery(ProductGalleryModel productgallery)
         {
             bool isUpdate = true;
 
             using (SqlConnection connection = new SqlConnection(CommonUtility.ConnectionString))
             {
-                SqlCommand command = new SqlCommand(StoreProcedure.UpdateManufacturers, connection);
+                SqlCommand command = new SqlCommand(StoreProcedure.UpdateProductGallery, connection);
                 command.CommandType = CommandType.StoredProcedure;
 
-                foreach (var item in manuFacturers.GetType().GetProperties())
+                foreach (var item in productgallery.GetType().GetProperties())
                 {
                     string name = item.Name;
-                    var value = item.GetValue(manuFacturers, null);
+                    var value = item.GetValue(productgallery, null);
                     command.Parameters.Add(new SqlParameter("@" + name, value == null ? DBNull.Value : value));
                 }
 
@@ -138,15 +138,14 @@ namespace BH.DataLayerSql
             }
             return isUpdate;
         }
-
-        public bool DeleteManufacturers(long Id)
+        public bool DeleteProductGallery(long Id)
         {
             bool isDelete = true;
             using (SqlConnection connection = new SqlConnection(CommonUtility.ConnectionString))
             {
-                SqlCommand command = new SqlCommand(StoreProcedure.DeleteManufacturers, connection);
+                SqlCommand command = new SqlCommand(StoreProcedure.DeleteProductGallery, connection);
                 command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.Add(new SqlParameter("@ManufacturersID", Id));
+                command.Parameters.Add(new SqlParameter("@ProductGalleryID", Id));
 
                 try
                 {
@@ -165,5 +164,6 @@ namespace BH.DataLayerSql
             }
             return isDelete;
         }
+
     }
 }

@@ -44,7 +44,17 @@
   <ItemGroup>
     <Compile Include="CommonUtility.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SqlBannerProvider.cs" />
+    <Compile Include="SqlBrandProvider.cs" />
     <Compile Include="SqlCompanyDetailsProvider.cs" />
+    <Compile Include="SqlManufacturerProvider.cs" />
+    <Compile Include="SqlProducSubCategoriesProvider.cs" />
+    <Compile Include="SqlProductCategoriesProvider.cs" />
+    <Compile Include="SqlProductGalleryProvider.cs" />
+    <Compile Include="SqlProductProvider.cs" />
+    <Compile Include="SqlProductTypeProvider.cs" />
+    <Compile Include="SqlSaleProvider.cs" />
+    <Compile Include="SqlTaxCategoryProvider.cs" />
     <Compile Include="SqlUserProvider.cs" />
   </ItemGroup>
   <ItemGroup>
