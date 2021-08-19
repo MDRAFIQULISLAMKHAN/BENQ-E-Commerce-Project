@@ -5,28 +5,29 @@ using System.Text;
 using System.Threading.Tasks;
 using BH.Models;
 using BH.DataLayer;
-using System.Data.SqlClient;
-using System.Data;
 using BH.Utility;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace BH.DataLayerSql
 {
-    public class SqlManufacturerProvider : IManufacturersProvider
+    public class SqlProductProvider : IProductProvider
     {
-        public List<ManufacturersModel> GetAllManufacturers()
+
+        public List<ProductModel> GetAllProduct()
         {
             using (SqlConnection connection = new SqlConnection(CommonUtility.ConnectionString))
             {
-                SqlCommand command = new SqlCommand(StoreProcedure.GetAllManufacturers, connection);
+                SqlCommand command = new SqlCommand(StoreProcedure.GetAllProduct, connection);
                 command.CommandType = CommandType.StoredProcedure;
 
                 try
                 {
                     connection.Open();
                     SqlDataReader dataReader = command.ExecuteReader();
-                    List<ManufacturersModel> manufacturersList = new List<ManufacturersModel>();
-                    manufacturersList = UtilityManager.DataReaderMapToList<ManufacturersModel>(dataReader);
-                    return manufacturersList;
+                    List<ProductModel> productlist = new List<ProductModel>();
+                    productlist = UtilityManager.DataReaderMapToList<ProductModel>(dataReader);
+                    return productlist;
                 }
                 catch (Exception e)
                 {
@@ -40,21 +41,21 @@ namespace BH.DataLayerSql
             }
         }
 
-        public ManufacturersModel GetManufacturersById(long Id)
+        public ProductModel GetProductById(long Id)
         {
             using (SqlConnection connection = new SqlConnection(CommonUtility.ConnectionString))
             {
-                SqlCommand command = new SqlCommand(StoreProcedure.GetManufacturersById, connection);
+                SqlCommand command = new SqlCommand(StoreProcedure.GetProductById, connection);
                 command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.Add(new SqlParameter("@ManufacturersID", Id));
+                command.Parameters.Add(new SqlParameter("@ProductID", Id));
 
                 try
                 {
                     connection.Open();
                     SqlDataReader reader = command.ExecuteReader();
-                    ManufacturersModel manufacturers = new ManufacturersModel();
-                    manufacturers = UtilityManager.DataReaderMap<ManufacturersModel>(reader);
-                    return manufacturers;
+                    ProductModel product = new ProductModel();
+                    product = UtilityManager.DataReaderMap<ProductModel>(reader);
+                    return product;
                 }
                 catch (Exception e)
                 {
@@ -67,22 +68,22 @@ namespace BH.DataLayerSql
             }
         }
 
-        public long InsertManufacturers(ManufacturersModel Manufacturers)
+        public long InsertProduct(ProductModel Product)
         {
             long id = 0;
             using (SqlConnection connection = new SqlConnection(CommonUtility.ConnectionString))
             {
-                SqlCommand command = new SqlCommand(StoreProcedure.InsertManufacturers, connection);
+                SqlCommand command = new SqlCommand(StoreProcedure.InsertProduct, connection);
                 command.CommandType = CommandType.StoredProcedure;
-                SqlParameter returnValue = new SqlParameter("@" + "ManufacturersID", SqlDbType.Int);
+                SqlParameter returnValue = new SqlParameter("@" + "ProductID", SqlDbType.Int);
                 returnValue.Direction = ParameterDirection.Output;
                 command.Parameters.Add(returnValue);
-                foreach (var item in Manufacturers.GetType().GetProperties())
+                foreach (var item in Product.GetType().GetProperties())
                 {
-                    if (item.Name != "Id")
+                    if (item.Name != "ProductID")
                     {
                         string name = item.Name;
-                        var value = item.GetValue(Manufacturers, null);
+                        var value = item.GetValue(Product, null);
 
                         command.Parameters.Add(new SqlParameter("@" + name, value == null ? DBNull.Value : value));
                     }
@@ -91,7 +92,7 @@ namespace BH.DataLayerSql
                 {
                     connection.Open();
                     command.ExecuteNonQuery();
-                    id = (int)command.Parameters["@ManufacturersID"].Value;
+                    id = (int)command.Parameters["@ProductID"].Value;
                 }
                 catch (Exception ex)
                 {
@@ -105,19 +106,19 @@ namespace BH.DataLayerSql
             return id;
         }
 
-        public bool UpdateManufacturers(ManufacturersModel manuFacturers)
+        public bool UpdateProduct(ProductModel product)
         {
             bool isUpdate = true;
 
             using (SqlConnection connection = new SqlConnection(CommonUtility.ConnectionString))
             {
-                SqlCommand command = new SqlCommand(StoreProcedure.UpdateManufacturers, connection);
+                SqlCommand command = new SqlCommand(StoreProcedure.UpdateProduct, connection);
                 command.CommandType = CommandType.StoredProcedure;
 
-                foreach (var item in manuFacturers.GetType().GetProperties())
+                foreach (var item in product.GetType().GetProperties())
                 {
                     string name = item.Name;
-                    var value = item.GetValue(manuFacturers, null);
+                    var value = item.GetValue(product, null);
                     command.Parameters.Add(new SqlParameter("@" + name, value == null ? DBNull.Value : value));
                 }
 
@@ -138,15 +139,14 @@ namespace BH.DataLayerSql
             }
             return isUpdate;
         }
-
-        public bool DeleteManufacturers(long Id)
+        public bool DeleteProduct(long Id)
         {
             bool isDelete = true;
             using (SqlConnection connection = new SqlConnection(CommonUtility.ConnectionString))
             {
-                SqlCommand command = new SqlCommand(StoreProcedure.DeleteManufacturers, connection);
+                SqlCommand command = new SqlCommand(StoreProcedure.DeleteProduct, connection);
                 command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.Add(new SqlParameter("@ManufacturersID", Id));
+                command.Parameters.Add(new SqlParameter("@ProductID", Id));
 
                 try
                 {
