@@ -18,7 +18,7 @@ namespace BhWeb.Controllers
         {
             PublicViewModel publicViewModel = new PublicViewModel();
             publicViewModel.CompanyDetails = CompanyDetailsManager.GetCompanyDetails(1);
-            return View("~/Views/Home/benq.cshtml");
+            return View("~/Views/Home/benq.cshtml", publicViewModel);
         }
 
         public ActionResult Headertop()
