@@ -11,22 +11,23 @@ using BH.Utility;
 
 namespace BH.DataLayerSql
 {
-    public class SqlManufacturerProvider : IManufacturersProvider
+    public class SqlBannerProvider : IBannerProvider
     {
-        public List<ManufacturersModel> GetAllManufacturers()
+        
+        public List<BannerModel> GetAllBanner()
         {
             using (SqlConnection connection = new SqlConnection(CommonUtility.ConnectionString))
             {
-                SqlCommand command = new SqlCommand(StoreProcedure.GetAllManufacturers, connection);
+                SqlCommand command = new SqlCommand(StoreProcedure.GetAllBanner, connection);
                 command.CommandType = CommandType.StoredProcedure;
 
                 try
                 {
                     connection.Open();
                     SqlDataReader dataReader = command.ExecuteReader();
-                    List<ManufacturersModel> manufacturersList = new List<ManufacturersModel>();
-                    manufacturersList = UtilityManager.DataReaderMapToList<ManufacturersModel>(dataReader);
-                    return manufacturersList;
+                    List<BannerModel> bannerList = new List<BannerModel>();
+                    bannerList = UtilityManager.DataReaderMapToList<BannerModel>(dataReader);
+                    return bannerList;
                 }
                 catch (Exception e)
                 {
@@ -40,21 +41,21 @@ namespace BH.DataLayerSql
             }
         }
 
-        public ManufacturersModel GetManufacturersById(long Id)
+        public BannerModel GetBannerById(long Id)
         {
             using (SqlConnection connection = new SqlConnection(CommonUtility.ConnectionString))
             {
-                SqlCommand command = new SqlCommand(StoreProcedure.GetManufacturersById, connection);
+                SqlCommand command = new SqlCommand(StoreProcedure.GetBannerById, connection);
                 command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.Add(new SqlParameter("@ManufacturersID", Id));
+                command.Parameters.Add(new SqlParameter("@BannerID", Id));
 
                 try
                 {
                     connection.Open();
                     SqlDataReader reader = command.ExecuteReader();
-                    ManufacturersModel manufacturers = new ManufacturersModel();
-                    manufacturers = UtilityManager.DataReaderMap<ManufacturersModel>(reader);
-                    return manufacturers;
+                    BannerModel banner = new BannerModel();
+                    banner = UtilityManager.DataReaderMap<BannerModel>(reader);
+                    return banner;
                 }
                 catch (Exception e)
                 {
@@ -67,22 +68,22 @@ namespace BH.DataLayerSql
             }
         }
 
-        public long InsertManufacturers(ManufacturersModel Manufacturers)
+        public long InsertBanner(BannerModel Banner)
         {
             long id = 0;
             using (SqlConnection connection = new SqlConnection(CommonUtility.ConnectionString))
             {
-                SqlCommand command = new SqlCommand(StoreProcedure.InsertManufacturers, connection);
+                SqlCommand command = new SqlCommand(StoreProcedure.InsertBanner, connection);
                 command.CommandType = CommandType.StoredProcedure;
-                SqlParameter returnValue = new SqlParameter("@" + "ManufacturersID", SqlDbType.Int);
+                SqlParameter returnValue = new SqlParameter("@" + "BannerID", SqlDbType.Int);
                 returnValue.Direction = ParameterDirection.Output;
                 command.Parameters.Add(returnValue);
-                foreach (var item in Manufacturers.GetType().GetProperties())
+                foreach (var item in Banner.GetType().GetProperties())
                 {
-                    if (item.Name != "Id")
+                    if (item.Name != "CategorieID")
                     {
                         string name = item.Name;
-                        var value = item.GetValue(Manufacturers, null);
+                        var value = item.GetValue(Banner, null);
 
                         command.Parameters.Add(new SqlParameter("@" + name, value == null ? DBNull.Value : value));
                     }
@@ -91,7 +92,7 @@ namespace BH.DataLayerSql
                 {
                     connection.Open();
                     command.ExecuteNonQuery();
-                    id = (int)command.Parameters["@ManufacturersID"].Value;
+                    id = (int)command.Parameters["@BannerID"].Value;
                 }
                 catch (Exception ex)
                 {
@@ -105,19 +106,19 @@ namespace BH.DataLayerSql
             return id;
         }
 
-        public bool UpdateManufacturers(ManufacturersModel manuFacturers)
+        public bool UpdateBanner(BannerModel banner)
         {
             bool isUpdate = true;
 
             using (SqlConnection connection = new SqlConnection(CommonUtility.ConnectionString))
             {
-                SqlCommand command = new SqlCommand(StoreProcedure.UpdateManufacturers, connection);
+                SqlCommand command = new SqlCommand(StoreProcedure.UpdateProductCategories, connection);
                 command.CommandType = CommandType.StoredProcedure;
 
-                foreach (var item in manuFacturers.GetType().GetProperties())
+                foreach (var item in banner.GetType().GetProperties())
                 {
                     string name = item.Name;
-                    var value = item.GetValue(manuFacturers, null);
+                    var value = item.GetValue(banner, null);
                     command.Parameters.Add(new SqlParameter("@" + name, value == null ? DBNull.Value : value));
                 }
 
@@ -139,14 +140,14 @@ namespace BH.DataLayerSql
             return isUpdate;
         }
 
-        public bool DeleteManufacturers(long Id)
+        public bool DeleteBanner(long Id)
         {
             bool isDelete = true;
             using (SqlConnection connection = new SqlConnection(CommonUtility.ConnectionString))
             {
-                SqlCommand command = new SqlCommand(StoreProcedure.DeleteManufacturers, connection);
+                SqlCommand command = new SqlCommand(StoreProcedure.DeleteBanner, connection);
                 command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.Add(new SqlParameter("@ManufacturersID", Id));
+                command.Parameters.Add(new SqlParameter("@BannerID", Id));
 
                 try
                 {
@@ -165,5 +166,6 @@ namespace BH.DataLayerSql
             }
             return isDelete;
         }
+
     }
 }
