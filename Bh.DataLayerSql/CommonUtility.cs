@@ -48,6 +48,7 @@ namespace BH.DataLayerSql
         public static string InsertProductCategories = "sp_InsertProductCategorie";
         public static string UpdateProductCategories = "sp_UpdateProductCategorie";
         public static string DeleteProductCategories = "sp_DeleteProductCategorie";
+        yhfgjhfg
         
         
         //Product Gallery
