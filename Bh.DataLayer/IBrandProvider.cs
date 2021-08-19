@@ -10,7 +10,7 @@ namespace BH.DataLayerSql
     public interface IBrandProvider
     {
         List<BrandModel> GetAllBrand();
-        BrandModel GetProductGalleryById(long Id);
+        BrandModel GetBrandById(long Id);
         long InsertBrand(BrandModel Brand);
         bool UpdateBrand(BrandModel brand);
         bool DeleteBrand(long Id);
