@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Net.Mail;
 using System.Text;
@@ -18,9 +19,7 @@ namespace BhWeb.Controllers
         {
             PublicViewModel publicViewModel = new PublicViewModel();
             publicViewModel.CompanyDetails = CompanyDetailsManager.GetCompanyDetails(1);
-            publicViewModel.BannerList = BannerManager.GetAllBanner();
-       
-
+            publicViewModel.FeturedProductList = FeaturedProduct();
             return View("~/Views/Home/benq.cshtml", publicViewModel);
         }
 
@@ -29,6 +28,18 @@ namespace BhWeb.Controllers
             return PartialView();
         }
 
+
+        public List<ProductModel> FeaturedProduct()
+        {
+            PublicViewModel publicViewModel = new PublicViewModel();
+            List<ProductModel> product = publicViewModel.ProductsList;
+            publicViewModel.ProductsList = ProductManager.GetProducts();
+            product = publicViewModel.ProductsList;
+
+            List<ProductModel> result = (product.Where(i => i.FeaturedProducts == true).ToList<ProductModel>());
+
+            return result;
+        }
 
         /*public ActionResult Index()
         {

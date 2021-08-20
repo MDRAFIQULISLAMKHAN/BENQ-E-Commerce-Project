@@ -8,10 +8,9 @@ namespace BH.Models
     {
 
         public CompanyDetailsModel CompanyDetails { get; set; }
-        public BannerModel BannerModel { get; set; }
-        public List<BannerModel> BannerList { get; set; }
-        /*
-         * public List<BannerModel> Banners { get; set; }
+        public List<ProductModel> ProductsList { get; set; }
+        public List<ProductModel> FeturedProductList { get; set; }
+        /*public List<Banner> Banners { get; set; }
         public AboutUs AboutUs { get; set; }
         public OurClient Clients { get; set; }
         public OurClientsBanner ClientsBanner { get; set; }
