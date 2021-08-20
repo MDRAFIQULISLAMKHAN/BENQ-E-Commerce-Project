@@ -16,7 +16,7 @@ namespace BH.DataLayerSql
 
         public List<ProductModel> GetAllProduct()
         {
-            using (SqlConnection connection = new SqlConnection(CommonUtility.ConnectionString))
+            using ( SqlConnection connection = new SqlConnection(CommonUtility.ConnectionString))
             {
                 SqlCommand command = new SqlCommand(StoreProcedure.GetAllProduct, connection);
                 command.CommandType = CommandType.StoredProcedure;
@@ -25,9 +25,9 @@ namespace BH.DataLayerSql
                 {
                     connection.Open();
                     SqlDataReader dataReader = command.ExecuteReader();
-                    List<ProductModel> productlist = new List<ProductModel>();
-                    productlist = UtilityManager.DataReaderMapToList<ProductModel>(dataReader);
-                    return productlist;
+                    List<ProductModel> productList = new List<ProductModel>();
+                    productList = UtilityManager.DataReaderMapToList<ProductModel>(dataReader);
+                    return productList;
                 }
                 catch (Exception e)
                 {
