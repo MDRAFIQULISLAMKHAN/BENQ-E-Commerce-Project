@@ -1684,6 +1684,7 @@
     <Content Include="Views\Home\benq.cshtml" />
     <Content Include="Views\Home\Headertop.cshtml" />
     <Content Include="Views\Partial\_HeaderTopMenu.cshtml" />
+    <Content Include="Views\Partial\_FeaturedProduct.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
