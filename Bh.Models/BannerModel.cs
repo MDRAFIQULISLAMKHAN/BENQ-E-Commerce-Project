@@ -46,6 +46,6 @@ namespace BH.Models
 
         [Display(Name = "AddedDate")]
         [Required(ErrorMessage = "AddedDate required")]
-        public string AddedDate { get; set; }
+        public DateTime AddedDate { get; set; }
     }
 }

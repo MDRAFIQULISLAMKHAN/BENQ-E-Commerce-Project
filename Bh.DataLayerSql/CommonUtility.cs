@@ -19,7 +19,7 @@ namespace BH.DataLayerSql
 
 
         // Company Details
-        public static string GetCompanyDetails = "sp_GetCompanyDetailbyID";
+        public static string GetCompanyDetails = "sp_GetCompanyDetailDetails";
 
         //Banner
         public static string GetAllBanner = "sp_GetBanner";
