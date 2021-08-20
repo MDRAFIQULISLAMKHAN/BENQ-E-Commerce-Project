@@ -36,8 +36,8 @@ namespace BhWeb.Controllers
             publicViewModel.ProductsList = ProductManager.GetProducts();
             product = publicViewModel.ProductsList;
 
-            var result = product.Where(p => product.All(p2 => p2.FeaturedProducts == true)).ToList();
-            
+            List<ProductModel> result = (product.Where(i => i.FeaturedProducts == true).ToList<ProductModel>());
+
             return result;
         }
 
