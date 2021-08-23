@@ -63,7 +63,7 @@
       <Name>BH.DataLayer</Name>
     </ProjectReference>
     <ProjectReference Include="..\Bh.Models\BH.Models.csproj">
-      <Project>{2a8206a8-a649-4b4f-92b8-c08982111f12}</Project>
+      <Project>{2A8206A8-A649-4B4F-92B8-C08982111F12}</Project>
       <Name>BH.Models</Name>
     </ProjectReference>
     <ProjectReference Include="..\Bh.Utility\BH.Utility.csproj">

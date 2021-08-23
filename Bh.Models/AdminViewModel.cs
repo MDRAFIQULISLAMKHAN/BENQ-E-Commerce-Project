@@ -25,8 +25,7 @@ namespace BH.Models
         public List<SaleModel> SaleList { get; set; }
         public TaxCategoryModel TaxCategory { get; set; }
         public List<TaxCategoryModel> TaxCategoryList { get; set; }
-        public UsersModel Users { get; set; }
-        public List<UsersModel> UsersList { get; set; }
+        
 
 
     }

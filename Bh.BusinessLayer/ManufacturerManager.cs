@@ -12,31 +12,31 @@ namespace BH.BusinessLayer
     {
         public static List<ManufacturersModel> GetAllManufacturers()
         {
-            SqlManufacturerProvider provider = new SqlManufacturerProvider;
+            SqlManufacturerProvider provider = new SqlManufacturerProvider();
             return provider.GetAllManufacturers();
         }
 
         public static ManufacturersModel GetManufacturersById(long Id)
         {
-            SqlManufacturerProvider provider = new SqlManufacturerProvider;
+            SqlManufacturerProvider provider = new SqlManufacturerProvider();
             return provider.GetManufacturersById(Id);
         }
 
         public static long InsertManufacturers(ManufacturersModel Manufacturers)
         {
-            SqlManufacturerProvider provider = new SqlManufacturerProvider;
+            SqlManufacturerProvider provider = new SqlManufacturerProvider();
             return provider.InsertManufacturers(Manufacturers);
         }
 
         public static bool UpdateManufacturers(ManufacturersModel manuFacturers)
         {
-            SqlManufacturerProvider provider = new SqlManufacturerProvider;
+            SqlManufacturerProvider provider = new SqlManufacturerProvider();
             return provider.UpdateManufacturers(manuFacturers);
         }
 
         public static bool DeleteManufacturers(long Id)
         {
-            SqlManufacturerProvider provider = new SqlManufacturerProvider;
+            SqlManufacturerProvider provider = new SqlManufacturerProvider();
             return provider.DeleteManufacturers(Id);
         }
     }
