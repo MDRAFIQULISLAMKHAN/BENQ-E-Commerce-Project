@@ -41,9 +41,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BannerManager.cs" />
+    <Compile Include="BrandManager.cs" />
+    <Compile Include="ManufacturerManager.cs" />
     <Compile Include="ProductManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="CompanyDetailsManager.cs" />
+    <Compile Include="SaleManager.cs" />
+    <Compile Include="TaxCategoryManager.cs" />
     <Compile Include="UserManager.cs" />
   </ItemGroup>
   <ItemGroup>
