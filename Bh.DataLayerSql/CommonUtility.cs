@@ -52,7 +52,7 @@ namespace BH.DataLayerSql
         
         //Product Gallery
         public static string GetAllProductGallery = "sp_GetProductGallery";
-        public static string GetProductGalleryById = "sp_GetProductGalleryDetails";
+        public static string GetProductGalleryById = "sp_GetProductGalleryByID";
         public static string InsertProductGallery = "sp_InsertProductGallery";
         public static string UpdateProductGallery = "sp_UpdateProductGallery";
         public static string DeleteProductGallery = "sp_DeleteProductGallery";

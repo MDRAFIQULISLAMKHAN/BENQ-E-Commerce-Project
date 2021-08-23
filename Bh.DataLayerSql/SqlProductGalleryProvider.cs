@@ -40,20 +40,20 @@ namespace BH.DataLayerSql
             }
         }
 
-        public ProductGalleryModel GetProductGalleryById(long Id)
+        public List<ProductGalleryModel>  GetProductGalleryById(long Id)
         {
             using (SqlConnection connection = new SqlConnection(CommonUtility.ConnectionString))
             {
                 SqlCommand command = new SqlCommand(StoreProcedure.GetProductGalleryById, connection);
                 command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.Add(new SqlParameter("@ProductGalleryID", Id));
+                command.Parameters.Add(new SqlParameter("@ProductID", Id));
 
                 try
                 {
                     connection.Open();
                     SqlDataReader reader = command.ExecuteReader();
-                    ProductGalleryModel productgallery = new ProductGalleryModel();
-                    productgallery = UtilityManager.DataReaderMap<ProductGalleryModel>(reader);
+                   List<ProductGalleryModel>  productgallery = new List<ProductGalleryModel>();
+                    productgallery = UtilityManager.DataReaderMapToList<ProductGalleryModel>(reader);
                     return productgallery;
                 }
                 catch (Exception e)

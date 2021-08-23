@@ -43,12 +43,14 @@
 
                     @foreach (var item in Model.FeturedProductList)
                     {
+
                         <div class="product product-7 text-center">
                             <figure class="product-media">
-                                <a href="product.html">
-                                    <img src="~@item.ProductImage" alt="Product image" class="product-image">
-                                    <img src="~@item.ProductImage" alt="Product image" class="product-image-hover">
+                                <a href="/Product/Index/@item.ProductID">
+                                    <img src="@item.ProductImage" alt="Product image" class="product-image">
+                                    <img src="@item.ProductImage" alt="Product image" class="product-image-hover">
                                 </a>
+
                                 <div class="product-action-vertical">
                                     <a href="#" class="btn-product-icon btn-wishlist btn-expandable"><span>add to wishlist</span></a>
                                     <a href="~/popup/quickView.html" class="btn-product-icon btn-quickview" title="Quick view"><span>Quick view</span></a>
