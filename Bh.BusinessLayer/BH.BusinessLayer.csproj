@@ -12,21 +12,6 @@
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
-    <PublishUrl>publish\</PublishUrl>
-    <Install>true</Install>
-    <InstallFrom>Disk</InstallFrom>
-    <UpdateEnabled>false</UpdateEnabled>
-    <UpdateMode>Foreground</UpdateMode>
-    <UpdateInterval>7</UpdateInterval>
-    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
-    <UpdatePeriodically>false</UpdatePeriodically>
-    <UpdateRequired>false</UpdateRequired>
-    <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
-    <UseApplicationTrust>false</UseApplicationTrust>
-    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -56,44 +41,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BannerManager.cs" />
-    <Compile Include="BrandManager.cs" />
-    <Compile Include="ManufacturerManager.cs" />
     <Compile Include="ProductManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="CompanyDetailsManager.cs" />
-    <Compile Include="SaleManager.cs" />
-    <Compile Include="TaxCategoryManager.cs" />
     <Compile Include="UserManager.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
-      <Visible>False</Visible>
-      <ProductName>Microsoft .NET Framework 4.6.1 %28x86 and x64%29</ProductName>
-      <Install>true</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework 3.5 SP1</ProductName>
-      <Install>false</Install>
-    </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Bh.DataLayerSql\BH.DataLayerSql.csproj">
       <Project>{b33e5ddf-4436-4e65-a4cc-e7c51e61417a}</Project>
       <Name>BH.DataLayerSql</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Bh.DataLayer\BH.DataLayer.csproj">
-      <Project>{4490ffd2-37c4-4376-9130-c6e2fbef4e2f}</Project>
-      <Name>BH.DataLayer</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Bh.Models\BH.Models.csproj">
       <Project>{2a8206a8-a649-4b4f-92b8-c08982111f12}</Project>
       <Name>BH.Models</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Bh.Utility\BH.Utility.csproj">
-      <Project>{d0c34667-bbbe-43af-8788-a394904981e2}</Project>
-      <Name>BH.Utility</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
