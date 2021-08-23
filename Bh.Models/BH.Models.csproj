@@ -63,7 +63,6 @@
     <Compile Include="SaleModel.cs" />
     <Compile Include="TaxCategoryModel.cs" />
     <Compile Include="User.cs" />
-    <Compile Include="UsersModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
