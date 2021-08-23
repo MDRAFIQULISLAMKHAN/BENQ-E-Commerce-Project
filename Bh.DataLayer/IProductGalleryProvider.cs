@@ -9,7 +9,7 @@ namespace BH.DataLayerSql
     public interface IProductGalleryProvider
     {
         List<ProductGalleryModel> GetAllProductGallery();
-        ProductGalleryModel GetProductGalleryById(long Id);
+        List<ProductGalleryModel>  GetProductGalleryById(long Id);
         long InsertProductGallery(ProductGalleryModel Productgallery);
         bool UpdateProductGallery(ProductGalleryModel productgallery);
         bool DeleteProductGallery(long Id);

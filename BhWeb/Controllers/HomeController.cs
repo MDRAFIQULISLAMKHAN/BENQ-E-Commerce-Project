@@ -41,6 +41,19 @@ namespace BhWeb.Controllers
             return result;
         }
 
+        /*public ActionResult ProductDetails(long id)
+        {
+            PublicViewModel publicViewModel = new PublicViewModel();
+            List<ProductModel> product = publicViewModel.ProductsList;
+            publicViewModel.ProductsList = ProductManager.GetProducts();
+            product = publicViewModel.ProductsList;
+
+            var result = (product.Where(i => i.ProductID == id));
+            publicViewModel.Product = result.First();
+
+            return View("", publicViewModel);
+        }*/
+
         /*public ActionResult Index()
         {
             PublicViewModel publicViewModel = new PublicViewModel();
