@@ -46,7 +46,7 @@ namespace BH.DataLayerSql
             {
                 SqlCommand command = new SqlCommand(StoreProcedure.GetProductGalleryById, connection);
                 command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.Add(new SqlParameter("@ProductID", Id));
+                command.Parameters.Add(new SqlParameter("@ProductGalleryID", Id));
 
                 try
                 {

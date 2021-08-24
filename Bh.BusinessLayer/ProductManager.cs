@@ -67,5 +67,4 @@ namespace BH.BusinessLayer
         }
     }
 }
-    }
-}
+    

@@ -16,7 +16,6 @@ namespace BH.Models
         public List<ProductModel> TrendingList { get; set; }
 
         public ProductModel Product { get; set; }
-        public ProductModel Product { get; set; }
         public List<ProductGalleryModel> ProductGallery { get; set; }
         /*public List<Banner> Banners { get; set; }
         public AboutUs AboutUs { get; set; }
