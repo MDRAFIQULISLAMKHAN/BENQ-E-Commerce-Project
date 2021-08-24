@@ -21,9 +21,10 @@ namespace BhWeb.Controllers
             publicViewModel.CompanyDetails = CompanyDetailsManager.GetCompanyDetails(1);
             publicViewModel.BannerList = BannerManager.GetAllBanner();
             publicViewModel.BrandList = BrandManager.GetAllBrand();
-       
 
             publicViewModel.FeturedProductList = FeaturedProduct();
+            publicViewModel.NewArrivalList = Arrival();
+            publicViewModel.TrendingList = Trending();
             return View("~/Views/Home/benq.cshtml", publicViewModel);
         }
 
@@ -40,9 +41,34 @@ namespace BhWeb.Controllers
             publicViewModel.ProductsList = ProductManager.GetAllProduct();
             product = publicViewModel.ProductsList;
 
-            var result = product.Where(p => product.All(p2 => p2.FeaturedProducts == true)).ToList();
-            
+            List<ProductModel> result = (product.Where(i => i.FeaturedProducts == true).ToList<ProductModel>());
+
             return result;
+        }
+
+        public List<ProductModel> Arrival()
+        {
+            PublicViewModel publicViewModel = new PublicViewModel();
+            List<ProductModel> product = publicViewModel.ProductsList;
+            publicViewModel.ProductsList = ProductManager.GetAllProduct();
+            product = publicViewModel.ProductsList;
+
+            List<ProductModel> arrival = product.Where(i => i.NewArrivals == true).ToList();
+            List<ProductModel> arrivalDate = arrival.OrderByDescending(i => i.CreatedDate).Take(12).ToList();
+
+            return arrivalDate;
+        }
+
+        public List<ProductModel> Trending()
+        {
+            PublicViewModel publicViewModel = new PublicViewModel();
+            List<ProductModel> product = publicViewModel.ProductsList;
+            publicViewModel.ProductsList = ProductManager.GetAllProduct();
+            product = publicViewModel.ProductsList;
+
+            List<ProductModel> trending = (product.Where(i => i.Trending == true).ToList<ProductModel>());
+
+            return trending;
         }
 
         /*public ActionResult Index()
@@ -304,4 +330,6 @@ namespace BhWeb.Controllers
             return msg;   // If msg == null then the e-mail was sent without errors
         }*/
     }
+
+    
 }

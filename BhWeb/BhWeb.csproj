@@ -1686,6 +1686,9 @@
     <Content Include="Views\Partial\_HeaderTopMenu.cshtml" />
     <Content Include="Views\Partial\_FeaturedProduct.cshtml" />
     <Content Include="Views\Partial\Banner.cshtml" />
+    <Content Include="Views\Partial\Brand.cshtml" />
+    <Content Include="Views\Partial\NewArrival.cshtml" />
+    <Content Include="Views\Partial\Trending.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

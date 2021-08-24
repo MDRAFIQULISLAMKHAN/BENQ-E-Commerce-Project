@@ -42,7 +42,7 @@ namespace BH.Models
 
         [Display(Name = "Discounts")]
         [Required(ErrorMessage = "Discounts required")]
-        public string Discounts { get; set; }
+        public int Discounts { get; set; }
 
         [Display(Name = "TaxCategoryID")]
         [Required(ErrorMessage = "TaxCategoryID required")]
