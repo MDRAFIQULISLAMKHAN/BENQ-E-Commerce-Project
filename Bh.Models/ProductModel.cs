@@ -16,9 +16,21 @@ namespace BH.Models
         [Required(ErrorMessage = "Product Name required")]
         public string ProductName { get; set; }
 
+        [Display(Name = "Product Description")]
+        [Required(ErrorMessage = "Product Description required")]
+        public string ProductDescription { get; set; }
+
         [Display(Name = "ProductFull Description")]
         [Required(ErrorMessage = "ProductFull Description required")]
         public string ProductFullDescription { get; set; }
+
+        [Display(Name = "Product Additional Information")]
+        [Required(ErrorMessage = "Product Additional Information required")]
+        public string ProductAdditionalInformation { get; set; }
+
+        [Display(Name = "ProductShipping")]
+        [Required(ErrorMessage = "Product Shipping required")]
+        public string ProductShipping { get; set; }
 
         [Display(Name = "CategoriesID")]
         [Required(ErrorMessage = "CategoriesID required")]
@@ -35,6 +47,10 @@ namespace BH.Models
         [Display(Name = "ManufacturersID")]
         [Required(ErrorMessage = "ManufacturersID required")]
         public int ManufacturersID { get; set; }
+
+        [Display(Name = "ReviewID")]
+        [Required(ErrorMessage = "ReviewID required")]
+        public int ReviewID { get; set; }
 
         [Display(Name = "Product Price")]
         [Required(ErrorMessage = "Product Price required")]

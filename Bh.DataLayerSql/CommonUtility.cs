@@ -80,8 +80,16 @@ namespace BH.DataLayerSql
         public static string InsertProductType = "sp_InsertProductType";
         public static string UpdateProductType = "sp_UpdateProductType";
         public static string DeleteProductType = "sp_DeleteProductType";
-        
-        
+
+
+        //Review
+        public static string GetAllReview = "sp_GetReview";
+        public static string GetReviewById = "sp_GetReviewDetails";
+        public static string InsertReview = "sp_InsertReview";
+        public static string UpdateReview = "sp_UpdateReview";
+        public static string DeleteReview = "sp_DeleteReview";
+
+
         //Sale
         public static string GetAllSale = "sp_GetSale";
         public static string GetSaleById = "sp_GetSaleDetails";
