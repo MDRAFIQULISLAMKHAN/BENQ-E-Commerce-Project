@@ -1689,6 +1689,7 @@
     <Content Include="Views\Home\ProductDetails.cshtml" />
     <Content Include="Views\Shared\_Product_Layout.cshtml" />
     <Content Include="Views\Product\Benq_Product.cshtml" />
+    <Content Include="Views\Partial\Banner.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
