@@ -123,6 +123,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AuthController.cs" />
+    <Compile Include="Controllers\ContactUsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Global.asax.cs">
@@ -1693,6 +1694,8 @@
     <Content Include="Views\Partial\Brand.cshtml" />
     <Content Include="Views\Partial\NewArrival.cshtml" />
     <Content Include="Views\Partial\Trending.cshtml" />
+    <Content Include="Views\Shared\ContactUs_Layout.cshtml" />
+    <Content Include="Views\ContactUs\Benq_ContactUs.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

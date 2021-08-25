@@ -14,6 +14,7 @@ namespace BH.Models
         public List<ProductModel> FeturedProductList { get; set; }
         public List<ProductModel> NewArrivalList { get; set; }
         public List<ProductModel> TrendingList { get; set; }
+        public List<StoreModel> StoreList { get; set; }
 
         public ProductModel Product { get; set; }
         public List<ProductGalleryModel> ProductGallery { get; set; }

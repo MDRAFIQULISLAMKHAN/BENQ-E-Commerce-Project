@@ -20,6 +20,10 @@ namespace BH.Models
         [Required(ErrorMessage = "Company Logo required")]
         public string CompanyLogo { get; set;}
 
+        [Display(Name = "Company Image")]
+        [Required(ErrorMessage = "Company Image required")]
+        public string CompanyImage { get; set;}
+
         [Display(Name = "Company Moto")]
         [Required(ErrorMessage = "Company Moto required")]
         public string CompanyMoto { get; set;}
@@ -63,6 +67,22 @@ namespace BH.Models
         [Display(Name = "Youtube Link")]
         [Required(ErrorMessage = "Youtube Link required")]
         public string YoutubeLink { get; set;}
+
+        [Display(Name = "Working Day")]
+        [Required(ErrorMessage = "Working Day required")]
+        public string WorkingDay { get; set; }
+
+        [Display(Name = "Working Hour")]
+        [Required(ErrorMessage = "Working Hour required")]
+        public string WorkingHour { get; set; }
+
+        [Display(Name = "Off Day")]
+        [Required(ErrorMessage = "Off Day required")]
+        public string OffDay { get; set; }
+
+        [Display(Name = "Off Hours")]
+        [Required(ErrorMessage = "Off Hours required")]
+        public string OffHours { get; set; }
 
         [Display(Name = "CreatedBy Name")]
         [Required(ErrorMessage = "CreatedBy Name required")]
