@@ -19,7 +19,12 @@ namespace BhWeb.Controllers
         {
             PublicViewModel publicViewModel = new PublicViewModel();
             publicViewModel.CompanyDetails = CompanyDetailsManager.GetCompanyDetails(1);
+            publicViewModel.BannerList = BannerManager.GetAllBanner();
+            publicViewModel.BrandList = BrandManager.GetAllBrand();
+
             publicViewModel.FeturedProductList = FeaturedProduct();
+            publicViewModel.NewArrivalList = Arrival();
+            publicViewModel.TrendingList = Trending();
             return View("~/Views/Home/benq.cshtml", publicViewModel);
         }
 
@@ -40,6 +45,32 @@ namespace BhWeb.Controllers
 
             return result;
         }
+
+        public List<ProductModel> Arrival()
+        {
+            PublicViewModel publicViewModel = new PublicViewModel();
+            List<ProductModel> product = publicViewModel.ProductsList;
+            publicViewModel.ProductsList = ProductManager.GetProducts();
+            product = publicViewModel.ProductsList;
+
+            List<ProductModel> arrival = product.Where(i => i.NewArrivals == true).ToList();
+            List<ProductModel> arrivalDate = arrival.OrderByDescending(i => i.CreatedDate).Take(12).ToList();
+
+            return arrivalDate;
+        }
+
+        public List<ProductModel> Trending()
+        {
+            PublicViewModel publicViewModel = new PublicViewModel();
+            List<ProductModel> product = publicViewModel.ProductsList;
+            publicViewModel.ProductsList = ProductManager.GetProducts();
+            product = publicViewModel.ProductsList;
+
+            List<ProductModel> trending = (product.Where(i => i.Trending == true).ToList<ProductModel>());
+
+            return trending;
+        }
+
 
         /*public ActionResult ProductDetails(long id)
         {
