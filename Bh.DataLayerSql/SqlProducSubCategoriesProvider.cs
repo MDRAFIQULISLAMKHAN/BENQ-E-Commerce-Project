@@ -140,7 +140,6 @@ namespace BH.DataLayerSql
             }
             return isUpdate;
         }
-
         public bool DeleteProjectSubCategory(long Id)
         {
             bool isDelete = true;

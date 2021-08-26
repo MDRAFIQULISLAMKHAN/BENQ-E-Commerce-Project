@@ -60,10 +60,10 @@
     <Compile Include="ProductTypeModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PublicViewModel.cs" />
+    <Compile Include="ReviewModel.cs" />
     <Compile Include="SaleModel.cs" />
     <Compile Include="TaxCategoryModel.cs" />
     <Compile Include="User.cs" />
-    <Compile Include="UsersModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

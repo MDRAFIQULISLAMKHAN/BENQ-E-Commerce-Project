@@ -53,6 +53,7 @@
     <Compile Include="SqlProductGalleryProvider.cs" />
     <Compile Include="SqlProductProvider.cs" />
     <Compile Include="SqlProductTypeProvider.cs" />
+    <Compile Include="SqlReviewProvider.cs" />
     <Compile Include="SqlSaleProvider.cs" />
     <Compile Include="SqlTaxCategoryProvider.cs" />
     <Compile Include="SqlUserProvider.cs" />

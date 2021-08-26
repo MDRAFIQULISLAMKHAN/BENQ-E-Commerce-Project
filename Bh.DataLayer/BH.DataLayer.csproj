@@ -50,6 +50,7 @@
     <Compile Include="IProductProvider.cs" />
     <Compile Include="IProductSubCategoriesProvider.cs" />
     <Compile Include="IProductTypeProvider.cs" />
+    <Compile Include="IReviewProvider.cs" />
     <Compile Include="ISaleProvider.cs" />
     <Compile Include="ITaxCategoryProvider.cs" />
     <Compile Include="IUserProvider.cs" />
@@ -59,6 +60,10 @@
     <ProjectReference Include="..\Bh.Models\BH.Models.csproj">
       <Project>{2a8206a8-a649-4b4f-92b8-c08982111f12}</Project>
       <Name>BH.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Bh.Utility\BH.Utility.csproj">
+      <Project>{d0c34667-bbbe-43af-8788-a394904981e2}</Project>
+      <Name>BH.Utility</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

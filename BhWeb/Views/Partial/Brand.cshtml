@@ -1,0 +1,9 @@
+﻿@model BH.Models.PublicViewModel
+@foreach (var brand in Model.BrandList)
+                {
+                    <div class="owl-item" style="width: 169.667px; margin-right: 30px;">
+                        <a href="#" class="brand">
+                            <img src="@brand.BrandImage" alt="@brand.BrandName">
+                        </a>
+                    </div>
+                }

@@ -38,7 +38,7 @@ namespace BhWeb.Controllers
         {
             PublicViewModel publicViewModel = new PublicViewModel();
             List<ProductModel> product = publicViewModel.ProductsList;
-            publicViewModel.ProductsList = ProductManager.GetProducts();
+            publicViewModel.ProductsList = ProductManager.GetAllProduct();
             product = publicViewModel.ProductsList;
 
             List<ProductModel> result = (product.Where(i => i.FeaturedProducts == true).ToList<ProductModel>());
@@ -76,14 +76,13 @@ namespace BhWeb.Controllers
         {
             PublicViewModel publicViewModel = new PublicViewModel();
             List<ProductModel> product = publicViewModel.ProductsList;
-            publicViewModel.ProductsList = ProductManager.GetProducts();
+            publicViewModel.ProductsList = ProductManager.GetAllProduct();
             product = publicViewModel.ProductsList;
 
-            var result = (product.Where(i => i.ProductID == id));
-            publicViewModel.Product = result.First();
+            List<ProductModel> trending = (product.Where(i => i.Trending == true).ToList<ProductModel>());
 
-            return View("", publicViewModel);
-        }*/
+            return trending;
+        }
 
         /*public ActionResult Index()
         {
@@ -344,4 +343,6 @@ namespace BhWeb.Controllers
             return msg;   // If msg == null then the e-mail was sent without errors
         }*/
     }
+
+    
 }

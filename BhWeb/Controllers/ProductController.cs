@@ -14,6 +14,7 @@ namespace BhWeb.Controllers
         public ActionResult Index(long id)
         {
             PublicViewModel publicViewModel = new PublicViewModel();
+
             List<ProductModel> product = publicViewModel.ProductsList;
             publicViewModel.ProductsList = ProductManager.GetProducts();
             
