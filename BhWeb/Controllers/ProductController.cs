@@ -24,5 +24,30 @@ namespace BhWeb.Controllers
             publicViewModel.ProductGallery = ProductManager.GetProductGallery(publicViewModel.Product.ProductID);
             return View("~/Views/Product/Benq_Product.cshtml", publicViewModel);
         }
+
+        public ActionResult ProductShop(long id)
+        {
+            PublicViewModel publicViewModel = new PublicViewModel();
+            List<ProductModel> product = publicViewModel.ProductsList;
+            publicViewModel.ProductsList = ProductManager.GetProducts();
+            product = publicViewModel.ProductsList;
+
+            var result = (product.Where(i => i.CategoriesID == id));
+            publicViewModel.ProductsListbyCategoryId = result.ToList();
+
+            return View("ProductsShop", publicViewModel);
+        }
+
+
+
+        public ActionResult ProducsByCategory(long id)
+        {
+          return  RedirectToAction("ProductShop", "Product", new { parameter = 1 });
+        }
+
+        public JsonResult AddToCurt(long id)
+        {
+            return Json();
+        }
     }
 }
