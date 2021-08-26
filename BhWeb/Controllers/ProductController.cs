@@ -24,6 +24,7 @@ namespace BhWeb.Controllers
             publicViewModel.Product = result.First();
             publicViewModel.ProductGallery = ProductManager.GetProductGallery(publicViewModel.Product.ProductID);
             return View("~/Views/Product/Benq_Product.cshtml", publicViewModel);
+
         }
     }
 }
