@@ -54,6 +54,7 @@
     <Compile Include="CartModel.cs" />
     <Compile Include="CompanyDetailsModel.cs" />
     <Compile Include="ManufacturersModel.cs" />
+    <Compile Include="PaymentModel.cs" />
     <Compile Include="ProductCategoriesModel.cs" />
     <Compile Include="ProductGalleryModel.cs" />
     <Compile Include="ProductModel.cs" />
@@ -65,6 +66,7 @@
     <Compile Include="SaleModel.cs" />
     <Compile Include="StoreModel.cs" />
     <Compile Include="TaxCategoryModel.cs" />
+    <Compile Include="TokenModel.cs" />
     <Compile Include="User.cs" />
   </ItemGroup>
   <ItemGroup>

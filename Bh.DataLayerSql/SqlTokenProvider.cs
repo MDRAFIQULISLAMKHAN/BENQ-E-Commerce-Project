@@ -1,33 +1,32 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using BH.Models;
 using BH.DataLayer;
-using System.Data.SqlClient;
-using System.Data;
+using BH.Models;
 using BH.Utility;
 
 namespace BH.DataLayerSql
 {
-    public class SqlBannerProvider : IBannerProvider
+    public class SqlTokenProvider : ITokenProvider
     {
-        
-        public List<BannerModel> GetAllBanner()
+        public List<TokenModel> GetAllToken()
         {
             using (SqlConnection connection = new SqlConnection(CommonUtility.ConnectionString))
             {
-                SqlCommand command = new SqlCommand(StoreProcedure.GetAllBanner, connection);
+                SqlCommand command = new SqlCommand(StoreProcedure.GetAllToken, connection);
                 command.CommandType = CommandType.StoredProcedure;
 
                 try
                 {
                     connection.Open();
                     SqlDataReader dataReader = command.ExecuteReader();
-                    List<BannerModel> bannerList = new List<BannerModel>();
-                    bannerList = UtilityManager.DataReaderMapToList<BannerModel>(dataReader);
-                    return bannerList;
+                    List<TokenModel> tokenList = new List<TokenModel>();
+                    tokenList = UtilityManager.DataReaderMapToList<TokenModel>(dataReader);
+                    return tokenList;
                 }
                 catch (Exception e)
                 {
@@ -41,21 +40,21 @@ namespace BH.DataLayerSql
             }
         }
 
-        public BannerModel GetBannerById(long Id)
+        public TokenModel GetTokenById(long Id)
         {
             using (SqlConnection connection = new SqlConnection(CommonUtility.ConnectionString))
             {
-                SqlCommand command = new SqlCommand(StoreProcedure.GetBannerById, connection);
+                SqlCommand command = new SqlCommand(StoreProcedure.GetTokenById, connection);
                 command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.Add(new SqlParameter("@BannerID", Id));
+                command.Parameters.Add(new SqlParameter("@TokenID", Id));
 
                 try
                 {
                     connection.Open();
                     SqlDataReader reader = command.ExecuteReader();
-                    BannerModel banner = new BannerModel();
-                    banner = UtilityManager.DataReaderMap<BannerModel>(reader);
-                    return banner;
+                    TokenModel token = new TokenModel();
+                    token = UtilityManager.DataReaderMap<TokenModel>(reader);
+                    return token;
                 }
                 catch (Exception e)
                 {
@@ -68,22 +67,22 @@ namespace BH.DataLayerSql
             }
         }
 
-        public long InsertBanner(BannerModel Banner)
+        public long InsertToken(TokenModel Token)
         {
             long id = 0;
             using (SqlConnection connection = new SqlConnection(CommonUtility.ConnectionString))
             {
-                SqlCommand command = new SqlCommand(StoreProcedure.InsertBanner, connection);
+                SqlCommand command = new SqlCommand(StoreProcedure.InsertToken, connection);
                 command.CommandType = CommandType.StoredProcedure;
-                SqlParameter returnValue = new SqlParameter("@" + "BannerID", SqlDbType.Int);
+                SqlParameter returnValue = new SqlParameter("@" + "TokenID", SqlDbType.Int);
                 returnValue.Direction = ParameterDirection.Output;
                 command.Parameters.Add(returnValue);
-                foreach (var item in Banner.GetType().GetProperties())
+                foreach (var item in Token.GetType().GetProperties())
                 {
-                    if (item.Name != "CategorieID")
+                    if (item.Name != "TokenID")
                     {
                         string name = item.Name;
-                        var value = item.GetValue(Banner, null);
+                        var value = item.GetValue(Token, null);
 
                         command.Parameters.Add(new SqlParameter("@" + name, value == null ? DBNull.Value : value));
                     }
@@ -92,7 +91,7 @@ namespace BH.DataLayerSql
                 {
                     connection.Open();
                     command.ExecuteNonQuery();
-                    id = (int)command.Parameters["@BannerID"].Value;
+                    id = (int)command.Parameters["@TokenID"].Value;
                 }
                 catch (Exception ex)
                 {
@@ -106,19 +105,19 @@ namespace BH.DataLayerSql
             return id;
         }
 
-        public bool UpdateBanner(BannerModel banner)
+        public bool UpdateToken(TokenModel token)
         {
             bool isUpdate = true;
 
             using (SqlConnection connection = new SqlConnection(CommonUtility.ConnectionString))
             {
-                SqlCommand command = new SqlCommand(StoreProcedure.UpdateBanner, connection);
+                SqlCommand command = new SqlCommand(StoreProcedure.UpdateToken, connection);
                 command.CommandType = CommandType.StoredProcedure;
 
-                foreach (var item in banner.GetType().GetProperties())
+                foreach (var item in token.GetType().GetProperties())
                 {
                     string name = item.Name;
-                    var value = item.GetValue(banner, null);
+                    var value = item.GetValue(token, null);
                     command.Parameters.Add(new SqlParameter("@" + name, value == null ? DBNull.Value : value));
                 }
 
@@ -140,14 +139,14 @@ namespace BH.DataLayerSql
             return isUpdate;
         }
 
-        public bool DeleteBanner(long Id)
+        public bool DeleteToken(long Id)
         {
             bool isDelete = true;
             using (SqlConnection connection = new SqlConnection(CommonUtility.ConnectionString))
             {
-                SqlCommand command = new SqlCommand(StoreProcedure.DeleteBanner, connection);
+                SqlCommand command = new SqlCommand(StoreProcedure.DeleteToken, connection);
                 command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.Add(new SqlParameter("@BannerID", Id));
+                command.Parameters.Add(new SqlParameter("@TokenID", Id));
 
                 try
                 {
@@ -166,6 +165,5 @@ namespace BH.DataLayerSql
             }
             return isDelete;
         }
-
     }
 }
