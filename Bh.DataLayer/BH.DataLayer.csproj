@@ -45,6 +45,7 @@
     <Compile Include="IBrandProvider.cs" />
     <Compile Include="ICartProvider.cs" />
     <Compile Include="ICompanyDetailsProvider.cs" />
+    <Compile Include="IDealProvider.cs" />
     <Compile Include="IManufacturersProvider.cs" />
     <Compile Include="IPaymentProvider.cs" />
     <Compile Include="IProductCategoriesProvider.cs" />

@@ -1696,6 +1696,7 @@
     <Content Include="Views\Partial\Trending.cshtml" />
     <Content Include="Views\Shared\ContactUs_Layout.cshtml" />
     <Content Include="Views\ContactUs\Benq_ContactUs.cshtml" />
+    <Content Include="Views\Partial\Deal.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
