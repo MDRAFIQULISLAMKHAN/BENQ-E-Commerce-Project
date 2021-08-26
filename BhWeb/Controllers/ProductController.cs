@@ -46,9 +46,9 @@ namespace BhWeb.Controllers
           return  RedirectToAction("ProductShop", "Product", new { parameter = 1 });
         }
 
-        public JsonResult AddToCurt(long id)
-        {
-            return Json();
-        }
+        //public JsonResult AddToCurt(long id)
+        //{
+        //    return Json();
+        //}
     }
 }
