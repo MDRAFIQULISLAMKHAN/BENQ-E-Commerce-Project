@@ -49,6 +49,7 @@
     <Compile Include="SqlCartProvider.cs" />
     <Compile Include="SqlCompanyDetailsProvider.cs" />
     <Compile Include="SqlManufacturerProvider.cs" />
+    <Compile Include="SqlPaymentProvider.cs" />
     <Compile Include="SqlProducSubCategoriesProvider.cs" />
     <Compile Include="SqlProductCategoriesProvider.cs" />
     <Compile Include="SqlProductGalleryProvider.cs" />
@@ -58,6 +59,7 @@
     <Compile Include="SqlSaleProvider.cs" />
     <Compile Include="SqlStoreProvider.cs" />
     <Compile Include="SqlTaxCategoryProvider.cs" />
+    <Compile Include="SqlTokenProvider.cs" />
     <Compile Include="SqlUserProvider.cs" />
   </ItemGroup>
   <ItemGroup>
