@@ -49,7 +49,11 @@
                     <div class="product-price">
                         @foreach (var item in Model.DealList)
                         {
-                            <span class="new-price">@item.NewPrice</span>
+                            if (deal.ProductID == item.ProductID)
+                            {
+                                <span class="new-price">@item.NewPrice</span>
+                            }
+                          
                         }
                         <span class="old-price">@deal.ProductPrice</span>
                     </div><!-- End .product-price -->
