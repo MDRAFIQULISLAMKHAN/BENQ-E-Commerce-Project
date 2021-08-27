@@ -21,7 +21,7 @@ namespace BhWeb.Controllers
             publicViewModel.CompanyDetails = CompanyDetailsManager.GetCompanyDetails(1);
             publicViewModel.BannerList = BannerManager.GetAllBanner();
             publicViewModel.BrandList = BrandManager.GetAllBrand();
-
+            //publicViewModel.Categories = ProductManager.GetAllProductCategories();
             publicViewModel.FeturedProductList = FeaturedProduct();
             publicViewModel.NewArrivalList = Arrival();
             publicViewModel.TrendingList = Trending();
@@ -40,9 +40,7 @@ namespace BhWeb.Controllers
             List<ProductModel> product = publicViewModel.ProductsList;
             publicViewModel.ProductsList = ProductManager.GetAllProduct();
             product = publicViewModel.ProductsList;
-
             List<ProductModel> result = (product.Where(i => i.FeaturedProducts == true).ToList<ProductModel>());
-
             return result;
         }
 
@@ -52,7 +50,6 @@ namespace BhWeb.Controllers
             List<ProductModel> product = publicViewModel.ProductsList;
             publicViewModel.ProductsList = ProductManager.GetAllProduct();
             product = publicViewModel.ProductsList;
-
             List<ProductModel> arrival = product.Where(i => i.NewArrivals == true).ToList();
             List<ProductModel> arrivalDate = arrival.OrderByDescending(i => i.CreatedDate).Take(12).ToList();
 
