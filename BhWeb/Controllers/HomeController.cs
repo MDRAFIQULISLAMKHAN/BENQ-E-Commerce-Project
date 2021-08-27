@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Mail;
+using System.Reflection;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Web.Mvc;
@@ -21,13 +22,22 @@ namespace BhWeb.Controllers
             publicViewModel.CompanyDetails = CompanyDetailsManager.GetCompanyDetails(1);
             publicViewModel.BannerList = BannerManager.GetAllBanner();
             publicViewModel.BrandList = BrandManager.GetAllBrand();
-
+            //publicViewModel.Categories = ProductManager.GetAllProductCategories();
             publicViewModel.FeturedProductList = FeaturedProduct();
             publicViewModel.NewArrivalList = Arrival();
             publicViewModel.TrendingList = Trending();
-            publicViewModel.Product = ProductManager.GetProductById(1);
-            publicViewModel.DealList = DealManager.GetAllDeal();
-            publicViewModel.Deal1 = DealManager.GetDealById(1);
+            publicViewModel.DealList = Deals();
+            List<ProductModel> productsList = new List<ProductModel>();
+
+
+            foreach (var deal in publicViewModel.DealList)
+            {
+                var dealProductById = ProductManager.GetProductById(deal.ProductID);
+                productsList.Add(dealProductById);
+
+            }
+
+            publicViewModel.DealsofthedayProductList = productsList;
 
             return View("~/Views/Home/benq.cshtml", publicViewModel);
         }
@@ -44,9 +54,7 @@ namespace BhWeb.Controllers
             List<ProductModel> product = publicViewModel.ProductsList;
             publicViewModel.ProductsList = ProductManager.GetAllProduct();
             product = publicViewModel.ProductsList;
-
             List<ProductModel> result = (product.Where(i => i.FeaturedProducts == true).ToList<ProductModel>());
-
             return result;
         }
 
@@ -56,7 +64,6 @@ namespace BhWeb.Controllers
             List<ProductModel> product = publicViewModel.ProductsList;
             publicViewModel.ProductsList = ProductManager.GetAllProduct();
             product = publicViewModel.ProductsList;
-
             List<ProductModel> arrival = product.Where(i => i.NewArrivals == true).ToList();
             List<ProductModel> arrivalDate = arrival.OrderByDescending(i => i.CreatedDate).Take(12).ToList();
 
@@ -73,6 +80,17 @@ namespace BhWeb.Controllers
             List<ProductModel> trending = (product.Where(i => i.Trending == true).ToList<ProductModel>());
 
             return trending;
+        }
+
+        public List<DealModel> Deals()
+        {
+            DateTime serverTime = DateTime.Now; // gives you current Time in server timeZone
+            DateTime utcTime = serverTime.ToUniversalTime(); // convert it to Utc using timezone setting of server computer
+            PublicViewModel publicViewModel = new PublicViewModel();
+            publicViewModel.DealList = DealManager.GetAllDeal();
+            List<DealModel> newDeals = publicViewModel.DealList;
+            var dealsofTheday = newDeals.Where(t => t.StartingTime.Date >= utcTime).OrderBy(t => t.EndingTime).ToList();
+            return dealsofTheday;
         }
 
         /*public ActionResult Index()
