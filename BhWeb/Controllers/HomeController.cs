@@ -25,6 +25,10 @@ namespace BhWeb.Controllers
             publicViewModel.FeturedProductList = FeaturedProduct();
             publicViewModel.NewArrivalList = Arrival();
             publicViewModel.TrendingList = Trending();
+            publicViewModel.Product = ProductManager.GetProductById(1);
+            publicViewModel.DealList = DealManager.GetAllDeal();
+            publicViewModel.Deal1 = DealManager.GetDealById(1);
+
             return View("~/Views/Home/benq.cshtml", publicViewModel);
         }
 

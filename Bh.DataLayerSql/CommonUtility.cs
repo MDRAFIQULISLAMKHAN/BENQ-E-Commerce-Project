@@ -44,6 +44,14 @@ namespace BH.DataLayerSql
         public static string InsertCart = "sp_InsertCart";
         public static string UpdateCart = "sp_UpdateCart";
         public static string DeleteCart = "sp_DeleteCart";
+        
+        
+        //Deal
+        public static string GetAllDeal = "sp_GetDeal";
+        public static string GetDealById = "sp_GetDealDetails";
+        public static string InsertDeal = "sp_InsertDeal";
+        public static string UpdateDeal = "sp_UpdateDeal";
+        public static string DeleteDeal = "sp_DeleteDeal";
 
         
         //Manufactureres
