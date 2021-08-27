@@ -21,12 +21,14 @@ namespace BH.DataLayerSql
         // Company Details
         public static string GetCompanyDetails = "sp_GetCompanyDetailDetails";
 
+
         //Banner
         public static string GetAllBanner = "sp_GetBanner";
         public static string GetBannerById = "sp_GetBannerDetails";
         public static string InsertBanner = "sp_InsertBanner";
         public static string UpdateBanner = "sp_UpdateBanner";
         public static string DeleteBanner = "sp_DeleteBanner";
+
         
         //Brand
         public static string GetAllBrand = "sp_GetBrand";
@@ -34,6 +36,15 @@ namespace BH.DataLayerSql
         public static string InsertBrand = "sp_InsertBrand";
         public static string UpdateBrand = "sp_UpdateBrand";
         public static string DeleteBrand = "sp_DeleteBrand";
+
+        
+        //Cart
+        public static string GetAllCart = "sp_GetCart";
+        public static string GetCartById = "sp_GetCartDetails";
+        public static string InsertCart = "sp_InsertCart";
+        public static string UpdateCart = "sp_UpdateCart";
+        public static string DeleteCart = "sp_DeleteCart";
+
         
         //Manufactureres
         public static string GetAllManufacturers = "sp_GetManufacturers";
@@ -41,7 +52,16 @@ namespace BH.DataLayerSql
         public static string InsertManufacturers = "sp_InsertManufacturer";
         public static string UpdateManufacturers = "sp_UpdateManufacturer";
         public static string DeleteManufacturers = "sp_DeleteManufacturer";
+
+
+        //Payment
+        public static string GetAllPayment = "sp_GetPayment";
+        public static string GetPaymentById = "sp_GetPaymentDetails";
+        public static string InsertPayment = "sp_InsertPayment";
+        public static string UpdatePayment = "sp_UpdatePayment";
+        public static string DeletePayment = "sp_DeletePayment";
         
+
         //Product Categories
         public static string GetAllProductCategories = "sp_GetProductCategories";
         public static string GetProductCategoriesById = "sp_GetProductCategorieDetails";
@@ -96,8 +116,24 @@ namespace BH.DataLayerSql
         public static string InsertSale = "sp_InsertSale";
         public static string UpdateSale = "sp_UpdateSale";
         public static string DeleteSale = "sp_DeleteSale";
-        
-        
+
+
+        //Store
+        public static string GetAllStore = "sp_GetStore";
+        public static string GetStoreById = "sp_GetStoreDetails";
+        public static string InsertStore = "sp_InsertStore";
+        public static string UpdateStore = "sp_UpdateStore";
+        public static string DeleteStore = "sp_DeleteStore";
+
+
+        //Token
+        public static string GetAllToken = "sp_GetToken";
+        public static string GetTokenById = "sp_GetTokenDetails";
+        public static string InsertToken = "sp_InsertToken";
+        public static string UpdateToken = "sp_UpdateToken";
+        public static string DeleteToken = "sp_DeleteToken";
+
+
         //Tax Category
         public static string GetAllTaxCategory = "sp_GetTaxCategory";
         public static string GetTaxCategoryById = "sp_GetTaxCategoryDetails";

@@ -11,23 +11,23 @@ using BH.Utility;
 
 namespace BH.DataLayerSql
 {
-    public class SqlBannerProvider : IBannerProvider
+    public class SqlStoreProvider : IStoreProvider
     {
         
-        public List<BannerModel> GetAllBanner()
+        public List<StoreModel> GetAllStore()
         {
             using (SqlConnection connection = new SqlConnection(CommonUtility.ConnectionString))
             {
-                SqlCommand command = new SqlCommand(StoreProcedure.GetAllBanner, connection);
+                SqlCommand command = new SqlCommand(StoreProcedure.GetAllStore, connection);
                 command.CommandType = CommandType.StoredProcedure;
 
                 try
                 {
                     connection.Open();
                     SqlDataReader dataReader = command.ExecuteReader();
-                    List<BannerModel> bannerList = new List<BannerModel>();
-                    bannerList = UtilityManager.DataReaderMapToList<BannerModel>(dataReader);
-                    return bannerList;
+                    List<StoreModel> storeList = new List<StoreModel>();
+                    storeList = UtilityManager.DataReaderMapToList<StoreModel>(dataReader);
+                    return storeList;
                 }
                 catch (Exception e)
                 {
@@ -41,21 +41,21 @@ namespace BH.DataLayerSql
             }
         }
 
-        public BannerModel GetBannerById(long Id)
+        public StoreModel GetStoreById(long Id)
         {
             using (SqlConnection connection = new SqlConnection(CommonUtility.ConnectionString))
             {
-                SqlCommand command = new SqlCommand(StoreProcedure.GetBannerById, connection);
+                SqlCommand command = new SqlCommand(StoreProcedure.GetStoreById, connection);
                 command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.Add(new SqlParameter("@BannerID", Id));
+                command.Parameters.Add(new SqlParameter("@StoreID", Id));
 
                 try
                 {
                     connection.Open();
                     SqlDataReader reader = command.ExecuteReader();
-                    BannerModel banner = new BannerModel();
-                    banner = UtilityManager.DataReaderMap<BannerModel>(reader);
-                    return banner;
+                    StoreModel store = new StoreModel();
+                    store = UtilityManager.DataReaderMap<StoreModel>(reader);
+                    return store;
                 }
                 catch (Exception e)
                 {
@@ -68,22 +68,22 @@ namespace BH.DataLayerSql
             }
         }
 
-        public long InsertBanner(BannerModel Banner)
+        public long InsertStore(StoreModel Store)
         {
             long id = 0;
             using (SqlConnection connection = new SqlConnection(CommonUtility.ConnectionString))
             {
-                SqlCommand command = new SqlCommand(StoreProcedure.InsertBanner, connection);
+                SqlCommand command = new SqlCommand(StoreProcedure.InsertStore, connection);
                 command.CommandType = CommandType.StoredProcedure;
-                SqlParameter returnValue = new SqlParameter("@" + "BannerID", SqlDbType.Int);
+                SqlParameter returnValue = new SqlParameter("@" + "StoreID", SqlDbType.Int);
                 returnValue.Direction = ParameterDirection.Output;
                 command.Parameters.Add(returnValue);
-                foreach (var item in Banner.GetType().GetProperties())
+                foreach (var item in Store.GetType().GetProperties())
                 {
-                    if (item.Name != "CategorieID")
+                    if (item.Name != "StoreID")
                     {
                         string name = item.Name;
-                        var value = item.GetValue(Banner, null);
+                        var value = item.GetValue(Store, null);
 
                         command.Parameters.Add(new SqlParameter("@" + name, value == null ? DBNull.Value : value));
                     }
@@ -92,7 +92,7 @@ namespace BH.DataLayerSql
                 {
                     connection.Open();
                     command.ExecuteNonQuery();
-                    id = (int)command.Parameters["@BannerID"].Value;
+                    id = (int)command.Parameters["@StoreID"].Value;
                 }
                 catch (Exception ex)
                 {
@@ -106,19 +106,19 @@ namespace BH.DataLayerSql
             return id;
         }
 
-        public bool UpdateBanner(BannerModel banner)
+        public bool UpdateStore(StoreModel store)
         {
             bool isUpdate = true;
 
             using (SqlConnection connection = new SqlConnection(CommonUtility.ConnectionString))
             {
-                SqlCommand command = new SqlCommand(StoreProcedure.UpdateBanner, connection);
+                SqlCommand command = new SqlCommand(StoreProcedure.UpdateStore, connection);
                 command.CommandType = CommandType.StoredProcedure;
 
-                foreach (var item in banner.GetType().GetProperties())
+                foreach (var item in store.GetType().GetProperties())
                 {
                     string name = item.Name;
-                    var value = item.GetValue(banner, null);
+                    var value = item.GetValue(store, null);
                     command.Parameters.Add(new SqlParameter("@" + name, value == null ? DBNull.Value : value));
                 }
 
@@ -140,14 +140,14 @@ namespace BH.DataLayerSql
             return isUpdate;
         }
 
-        public bool DeleteBanner(long Id)
+        public bool DeleteStore(long Id)
         {
             bool isDelete = true;
             using (SqlConnection connection = new SqlConnection(CommonUtility.ConnectionString))
             {
-                SqlCommand command = new SqlCommand(StoreProcedure.DeleteBanner, connection);
+                SqlCommand command = new SqlCommand(StoreProcedure.DeleteStore, connection);
                 command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.Add(new SqlParameter("@BannerID", Id));
+                command.Parameters.Add(new SqlParameter("@StoreID", Id));
 
                 try
                 {
@@ -166,6 +166,5 @@ namespace BH.DataLayerSql
             }
             return isDelete;
         }
-
     }
 }

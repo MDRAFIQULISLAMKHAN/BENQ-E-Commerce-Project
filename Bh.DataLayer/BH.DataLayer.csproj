@@ -43,8 +43,10 @@
   <ItemGroup>
     <Compile Include="IBannerProvider.cs" />
     <Compile Include="IBrandProvider.cs" />
+    <Compile Include="ICartProvider.cs" />
     <Compile Include="ICompanyDetailsProvider.cs" />
     <Compile Include="IManufacturersProvider.cs" />
+    <Compile Include="IPaymentProvider.cs" />
     <Compile Include="IProductCategoriesProvider.cs" />
     <Compile Include="IProductGalleryProvider.cs" />
     <Compile Include="IProductProvider.cs" />
@@ -52,7 +54,9 @@
     <Compile Include="IProductTypeProvider.cs" />
     <Compile Include="IReviewProvider.cs" />
     <Compile Include="ISaleProvider.cs" />
+    <Compile Include="IStoreProvider.cs" />
     <Compile Include="ITaxCategoryProvider.cs" />
+    <Compile Include="ITokenProvider.cs" />
     <Compile Include="IUserProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
