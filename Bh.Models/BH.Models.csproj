@@ -53,6 +53,7 @@
     <Compile Include="BrandModel.cs" />
     <Compile Include="CartModel.cs" />
     <Compile Include="CompanyDetailsModel.cs" />
+    <Compile Include="DealModel.cs" />
     <Compile Include="ManufacturersModel.cs" />
     <Compile Include="PaymentModel.cs" />
     <Compile Include="ProductCategoriesModel.cs" />

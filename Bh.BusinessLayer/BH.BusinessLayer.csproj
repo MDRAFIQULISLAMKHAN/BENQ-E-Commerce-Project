@@ -44,6 +44,7 @@
     <Compile Include="BannerManager.cs" />
     <Compile Include="BrandManager.cs" />
     <Compile Include="CartManager.cs" />
+    <Compile Include="DealManager.cs" />
     <Compile Include="ManufacturerManager.cs" />
     <Compile Include="PaymentManager.cs" />
     <Compile Include="ProductManager.cs" />

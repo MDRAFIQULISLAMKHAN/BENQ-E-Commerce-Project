@@ -48,6 +48,7 @@
     <Compile Include="SqlBrandProvider.cs" />
     <Compile Include="SqlCartProvider.cs" />
     <Compile Include="SqlCompanyDetailsProvider.cs" />
+    <Compile Include="SqlDealProvider.cs" />
     <Compile Include="SqlManufacturerProvider.cs" />
     <Compile Include="SqlPaymentProvider.cs" />
     <Compile Include="SqlProducSubCategoriesProvider.cs" />
