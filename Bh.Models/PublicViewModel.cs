@@ -18,7 +18,6 @@ namespace BH.Models
         public DealModel Deal { get; set; }
         public List<DealModel> dealsofTheday { get; set; }
         public List<ProductModel> DealsofthedayProductList { get; set; }
-
         public ProductModel Product { get; set; }
         public List<ProductGalleryModel> ProductGallery { get; set; }
         public List<ProductCategoriesModel> Categories { get; set; }
