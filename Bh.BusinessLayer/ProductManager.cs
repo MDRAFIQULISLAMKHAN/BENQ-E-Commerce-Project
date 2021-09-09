@@ -21,7 +21,7 @@ namespace BH.BusinessLayer
             return provider.GetAllProductCategories();
         }
 
-        public static List<ProductGalleryModel>  GetProductGallery( long id)
+        public static List<ProductGalleryModel>  GetProductGallery(long id)
         {
             SqlProductGalleryProvider provider = new SqlProductGalleryProvider();
 
