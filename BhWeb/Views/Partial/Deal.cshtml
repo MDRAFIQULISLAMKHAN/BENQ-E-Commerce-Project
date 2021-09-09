@@ -2,7 +2,7 @@
 @model BH.Models.PublicViewModel
 @{
     int Count = 0;
-    
+
 }
 <div class="col-sm-12 col-md-8 col-lg-6">
     <div class="deal-content text-center">
@@ -33,10 +33,10 @@
 
         </div><!-- End .deal-countdown -->
     </div><!-- End .deal-content -->
-<div class="row deal-products">
-    @foreach (var deal in Model.DealsofthedayProductList)
-    {
-       
+    <div class="row deal-products">
+        @foreach (var deal in Model.DealsofthedayProductList)
+        {
+
             <div class="col-6 deal-product text-center">
                 <figure class="product-media">
                     <a href="/Product/Index/@deal.ProductID">
@@ -53,7 +53,7 @@
                             {
                                 <span class="new-price">@item.NewPrice</span>
                             }
-                          
+
                         }
                         <span class="old-price">@deal.ProductPrice</span>
                     </div><!-- End .product-price -->
@@ -61,8 +61,8 @@
                 <a href="category.html" class="action">shop now</a>
             </div>
 
-       
-    }
-</div>
+
+        }
+    </div>
 
 </div><!-- End .col-lg-5 -->
