@@ -44,7 +44,7 @@
 
                     @foreach (var item in Model.FeturedProductList)
                     {
-                        if (item.CategoriesID == 1)
+                        if (item.CategoriesID == 2)
                         {
                             @Html.HiddenFor(model =>item.ProductID, new { @class = "myclass" ,id = "productId" })
                             <div class="product product-7 text-center">
@@ -109,7 +109,7 @@
                     @foreach (var item in Model.FeturedProductList)
                     {
 
-                        if (item.CategoriesID == 2)
+                        if (item.CategoriesID == 1)
                         {
                           
                           
