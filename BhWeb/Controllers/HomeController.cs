@@ -82,6 +82,17 @@ namespace BhWeb.Controllers
             return trending;
         }
 
+        public List<DealModel> Deals()
+        {
+            DateTime serverTime = DateTime.Now; // gives you current Time in server timeZone
+            DateTime utcTime = serverTime.ToUniversalTime(); // convert it to Utc using timezone setting of server computer
+            PublicViewModel publicViewModel = new PublicViewModel();
+            publicViewModel.DealList = DealManager.GetAllDeal();
+            List<DealModel> newDeals = publicViewModel.DealList;
+            var dealsofTheday = newDeals.Where(t => t.StartingTime.Date >= utcTime).OrderBy(t => t.EndingTime).ToList();
+            return dealsofTheday;
+        }
+
     }
 
     

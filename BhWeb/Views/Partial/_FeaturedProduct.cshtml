@@ -1,5 +1,6 @@
-﻿@model BH.Models.PublicViewModel
-
+﻿@using Microsoft.Ajax.Utilities
+@using Vereyon.Web
+@model BH.Models.PublicViewModel
 <div class="bg-light-2 pt-6 pb-6 featured">
     <div class="container-fluid">
         <div class="heading heading-center mb-3">
@@ -45,6 +46,7 @@
                     {
                         if (item.CategoriesID == 1)
                         {
+                            @Html.HiddenFor(model =>item.ProductID, new { @class = "myclass" ,id = "productId" })
                             <div class="product product-7 text-center">
                                 <figure class="product-media">
                                     <a href="/Product/Index/@item.ProductID">
@@ -57,7 +59,7 @@
                                         <a href="~/popup/quickView.html" class="btn-product-icon btn-quickview" title="Quick view"><span>Quick view</span></a>
                                     </div><!-- End .product-action-vertical -->
                                     <div class="product-action">
-                                        <a href="#" class="btn-product btn-cart"><span>add to cart</span></a>
+                                        <a href="#" class="btn-product btn-cart" id="btnAddRecord"><span>add to cart</span></a>
                                     </div><!-- End .product-action -->
                                 </figure><!-- End .product-media -->
                                 <div class="product-body">
@@ -109,6 +111,9 @@
 
                         if (item.CategoriesID == 2)
                         {
+                          
+                          
+                            @Html.HiddenFor(model =>item.ProductID, new { @class = "myclass" ,id = "productId" })
                             <div class="product product-7 text-center">
                                 <figure class="product-media">
                                     <a href="/Product/Index/@item.ProductID">
@@ -121,7 +126,7 @@
                                         <a href="~/popup/quickView.html" class="btn-product-icon btn-quickview" title="Quick view"><span>Quick view</span></a>
                                     </div><!-- End .product-action-vertical -->
                                     <div class="product-action">
-                                        <a href="#" class="btn-product btn-cart"><span>add to cart</span></a>
+                                        <a href="#" class="btn-product btn-cart" id="btnAddRecord"><span>add to cart</span></a>
                                     </div><!-- End .product-action -->
                                 </figure><!-- End .product-media -->
                                 <div class="product-body">
@@ -147,3 +152,49 @@
         </div><!-- End .tab-content -->
     </div><!-- End .container-fluid -->
 </div><!-- End .bg-light-2 pt-4 pb-4 -->
+<script>
+
+    $(document).ready(function () {
+
+        $("#btnAddRecord").on('click', function (e) {
+
+            e.preventDefault();
+            var userDetails = {};
+
+            userDetails.productId = $("#productId").val();
+            userDetails.poductPrice = $("#txtLastName").val();
+            userDetails.poductQuantity = $("#txtLocation").val();
+
+            var jsonData = JSON.stringify({
+                userDetails: userDetails
+            });
+
+            $.ajax({
+                type: "POST",
+                url: "Ajax_function/ajax_update.asmx/addNewUser",
+                data: jsonData,
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: OnSuccess,
+                error: OnErrorCall
+            });
+
+            function OnSuccess(response) {
+                var result = response.d;
+                if (result == "success") {
+                    $("#msg").html("New record addded successfully  :)").css("color", "green");
+                }
+                $("#txtFirstName").val("");
+                $("#txtLastName").val("");
+                $("#txtLocation").val("");
+            }
+
+            function OnErrorCall(response) {
+                $("#msg").html("Error occurs  :(").css("color", "red");
+            }
+
+        });
+
+    });
+
+</script>

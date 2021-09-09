@@ -30,21 +30,31 @@ namespace BhWeb.Controllers
         public ActionResult ProductShop(long id)
         {
             PublicViewModel publicViewModel = new PublicViewModel();
-            List<ProductModel> product = publicViewModel.ProductsList;
-            publicViewModel.ProductsList = ProductManager.GetProducts();
-            product = publicViewModel.ProductsList;
-
-            var result = (product.Where(i => i.CategoriesID == id));
-            publicViewModel.ProductsListbyCategoryId = result.ToList();
+            publicViewModel.ProductsListbyCategoryId = ProducsByCategory(id);
+            publicViewModel.ProductsListbySubCategoryId = ProducsBySubCategory(id);
 
             return View("ProductsShop", publicViewModel);
         }
 
 
 
-        public ActionResult ProducsByCategory(long id)
+        public List<ProductModel> ProducsByCategory(long id)
         {
-          return  RedirectToAction("ProductShop", "Product", new { parameter = 1 });
+            List<ProductModel> allProducts = new List<ProductModel>();
+            allProducts = ProductManager.GetProducts();
+            var result = (allProducts.Where(i => i.CategoriesID == id).ToList());
+
+            return result;
+        }
+
+
+        public List<ProductModel> ProducsBySubCategory(long id)
+        {
+            List<ProductModel> allProducts = new List<ProductModel>();
+            allProducts = ProductManager.GetProducts();
+            var result = (allProducts.Where(i => i.SubCategoriesID == id).ToList());
+
+            return result;
         }
 
         //public JsonResult AddToCurt(long id)

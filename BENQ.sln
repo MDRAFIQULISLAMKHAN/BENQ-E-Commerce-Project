@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BhWeb", "BhWeb\BhWeb.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BH.BusinessLayer", "Bh.BusinessLayer\BH.BusinessLayer.csproj", "{B8FEB4F5-5E30-4D53-BF46-443F1FC37FF2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BhAdmin", "BhAdmin\BhAdmin.csproj", "{F7609180-D75D-4103-AD72-77664B2877CC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -49,6 +51,10 @@ Global
 		{B8FEB4F5-5E30-4D53-BF46-443F1FC37FF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B8FEB4F5-5E30-4D53-BF46-443F1FC37FF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B8FEB4F5-5E30-4D53-BF46-443F1FC37FF2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F7609180-D75D-4103-AD72-77664B2877CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7609180-D75D-4103-AD72-77664B2877CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F7609180-D75D-4103-AD72-77664B2877CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F7609180-D75D-4103-AD72-77664B2877CC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -60,6 +66,7 @@ Global
 		{4490FFD2-37C4-4376-9130-C6E2FBEF4E2F} = {79A9ACC6-E9A8-493B-A415-F48513589487}
 		{6381CC21-BAC1-4211-846C-CA47948D9443} = {3A0EC971-5C4E-4791-A898-A96E85737F96}
 		{B8FEB4F5-5E30-4D53-BF46-443F1FC37FF2} = {79A9ACC6-E9A8-493B-A415-F48513589487}
+		{F7609180-D75D-4103-AD72-77664B2877CC} = {3A0EC971-5C4E-4791-A898-A96E85737F96}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {54AA1F57-7BA2-43BD-9469-43C8A15CFEBD}

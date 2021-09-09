@@ -23,6 +23,7 @@ namespace BH.Models
         public List<ProductCategoriesModel> Categories { get; set; }
         public List<BrandModel> BrandList { get; set; }
         public List<ProductModel> ProductsListbyCategoryId { get; set; }
-
+        public List<ProductModel> ProductsListbySubCategoryId { get; set; }
+        public CartModel AddtoCart { get; set; }
     }
 }

@@ -123,6 +123,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AuthController.cs" />
+    <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\ContactUsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
@@ -1687,7 +1688,6 @@
     <Content Include="Views\Home\Headertop.cshtml" />
     <Content Include="Views\Partial\_HeaderTopMenu.cshtml" />
     <Content Include="Views\Partial\_FeaturedProduct.cshtml" />
-    <Content Include="Views\Home\ProductDetails.cshtml" />
     <Content Include="Views\Shared\_Product_Layout.cshtml" />
     <Content Include="Views\Product\Benq_Product.cshtml" />
     <Content Include="Views\Partial\Banner.cshtml" />
@@ -1706,6 +1706,7 @@
     <Folder Include="popup\assets\images\demos\demo-6\products\" />
     <Folder Include="popup\assets\images\popup\quickView\" />
     <Folder Include="popup\popup\" />
+    <Folder Include="Views\Cart\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
