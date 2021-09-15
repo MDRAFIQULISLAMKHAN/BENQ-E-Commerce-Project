@@ -23,7 +23,7 @@ namespace BhWeb.Controllers
             var result = (product.Where(i => i.ProductID == id));
             publicViewModel.Product = result.First();
             publicViewModel.ProductGallery = ProductManager.GetProductGallery(publicViewModel.Product.ProductID);
-            return View("~/Views/Product/Benq_Product.cshtml", publicViewModel);
+            return View("~/Views/Product/Benq_Product.cshtml", publicViewModel); 
 
         }
     }

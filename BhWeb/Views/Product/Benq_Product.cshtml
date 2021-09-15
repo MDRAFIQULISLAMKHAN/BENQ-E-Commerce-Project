@@ -10,7 +10,7 @@
         <nav aria-label="breadcrumb" class="breadcrumb-nav border-0 mb-0">
             <div class="container d-flex align-items-center">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item"><a href="~/Home/Index">Home</a></li>
                     <li class="breadcrumb-item"><a href="#">Products</a></li>
                     <li class="breadcrumb-item active" aria-current="page">Default</li>
                 </ol>
@@ -40,7 +40,6 @@
                                             <i class="icon-arrows"></i>
                                         </a>
                                     </figure><!-- End .product-main-image -->
-                                   
                                     <div id="product-zoom-gallery" class="product-image-gallery">
                                         @foreach (var item in Model.ProductGallery)
                                         {
@@ -108,7 +107,7 @@
                                     </div><!-- End .product-details-quantity -->
                                 </div><!-- End .details-filter-row -->
                                 <div class="product-details-action">
-                                    <a href="#" class="btn-product btn-cart"><span>add to cart</span></a>
+                                    <button onclick="btnCart();" type="submit" class="btn-product btn-cart">add to cart</button>
                                     <div class="details-action-wrapper">
                                         <a href="#" class="btn-product btn-wishlist" title="Wishlist"><span>Add to Wishlist</span></a>
                                         <a href="#" class="btn-product btn-compare" title="Compare"><span>Add to Compare</span></a>
@@ -222,7 +221,7 @@
                         </div><!-- .End .tab-pane -->
                     </div><!-- End .tab-content -->
                 </div><!-- End .product-details-tab -->
-                <h2 class="title text-center mb-4">You May Also Like</h2><!-- End .title text-center -->
+                @*<h2 class="title text-center mb-4">You May Also Like</h2><!-- End .title text-center -->
                 <div class="owl-carousel owl-simple carousel-equal-height carousel-with-shadow" data-toggle="owl"
                      data-owl-options='{
                             "nav": false,
@@ -424,9 +423,24 @@
                             </div><!-- End .rating-container -->
                         </div><!-- End .product-body -->
                     </div><!-- End .product -->
-                </div><!-- End .owl-carousel -->
+                </div><!-- End .owl-carousel -->*@
             </div><!-- End .container -->
         </div><!-- End .page-content -->
     </main><!-- End .main -->
     
 </div><!-- End .page-wrapper -->
+<script>
+    function btnCart() {
+        var ProductID = '@Model.Product.ProductID';
+        $.ajax({
+            type: "GET",
+            url: "/Cart/Index?id=" + ProductID,
+            contentType: 'application/json; charset=utf-8',
+            success: function(response) {
+                if (response != null) {
+
+                }
+            }
+        });
+    }
+</script>

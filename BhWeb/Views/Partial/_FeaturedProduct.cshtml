@@ -45,34 +45,71 @@
                     {
                         if (item.CategoriesID == 2)
                         {
-                            <div class="product product-7 text-center">
-                                <figure class="product-media">
-                                    <a href="/Product/Index/@item.ProductID">
-                                        <img src="@item.ProductImage" alt="Product image" class="product-image">
-                                        <img src="@item.ProductImage" alt="Product image" class="product-image-hover">
-                                    </a>
+                            if (item != null && item.Discounts != 0)
+                            {
+                                int percentComplete = (int)Math.Round((double)(@item.Discounts * @item.ProductPrice) / 100);
+                                int newprice = @item.ProductPrice - percentComplete;
+                                <div class="product product-7 text-center">
+                                    <figure class="product-media">
+                                        <a href="/Product/Index/@item.ProductID">
+                                            <img src="@item.ProductImage" alt="Product image" class="product-image">
+                                            <img src="@item.ProductImage" alt="Product image" class="product-image-hover">
+                                        </a>
 
-                                    <div class="product-action-vertical">
-                                        <a href="#" class="btn-product-icon btn-wishlist btn-expandable"><span>add to wishlist</span></a>
-                                        <a href="~/popup/quickView.html" class="btn-product-icon btn-quickview" title="Quick view"><span>Quick view</span></a>
-                                    </div><!-- End .product-action-vertical -->
-                                    <div class="product-action">
-                                        <a href="#" class="btn-product btn-cart"><span>add to cart</span></a>
-                                    </div><!-- End .product-action -->
-                                </figure><!-- End .product-media -->
-                                <div class="product-body">
-                                    <h3 class="product-title"><a href="product.html">@item.ProductName</a></h3><!-- End .product-title -->
-                                    <div class="product-price">
-                                        @item.ProductPrice
-                                    </div><!-- End .product-price -->
-                                    <div class="ratings-container">
-                                        <div class="ratings">
-                                            <div class="ratings-val" style="width: 20%;"></div><!-- End .ratings-val -->
-                                        </div><!-- End .ratings -->
-                                        <span class="ratings-text">( 2 Reviews )</span>
-                                    </div><!-- End .rating-container -->
-                                </div><!-- End .product-body -->
-                            </div><!-- End .product -->
+                                        <div class="product-action-vertical">
+                                            <a href="#" class="btn-product-icon btn-wishlist btn-expandable"><span>add to wishlist</span></a>
+                                            <a href="~/popup/quickView.html" class="btn-product-icon btn-quickview" title="Quick view"><span>Quick view</span></a>
+                                        </div><!-- End .product-action-vertical -->
+                                        <div class="product-action">
+                                            <a href="#" class="btn-product btn-cart"><span>add to cart</span></a>
+                                        </div><!-- End .product-action -->
+                                    </figure><!-- End .product-media -->
+                                    <div class="product-body">
+                                        <h3 class="product-title"><a href="product.html">@item.ProductName</a></h3><!-- End .product-title -->
+                                        <div class="product-price">
+                                            <span class="new-price">@newprice</span>
+                                            <span class="old-price">@item.ProductPrice</span>
+                                        </div><!-- End .product-price -->
+                                        <div class="ratings-container">
+                                            <div class="ratings">
+                                                <div class="ratings-val" style="width: 20%;"></div><!-- End .ratings-val -->
+                                            </div><!-- End .ratings -->
+                                            <span class="ratings-text">( 2 Reviews )</span>
+                                        </div><!-- End .rating-container -->
+                                    </div><!-- End .product-body -->
+                                </div><!-- End .product -->
+                            }
+                            else
+                            {
+                                <div class="product product-7 text-center">
+                                    <figure class="product-media">
+                                        <a href="/Product/Index/@item.ProductID">
+                                            <img src="@item.ProductImage" alt="Product image" class="product-image">
+                                            <img src="@item.ProductImage" alt="Product image" class="product-image-hover">
+                                        </a>
+
+                                        <div class="product-action-vertical">
+                                            <a href="#" class="btn-product-icon btn-wishlist btn-expandable"><span>add to wishlist</span></a>
+                                            <a href="~/popup/quickView.html" class="btn-product-icon btn-quickview" title="Quick view"><span>Quick view</span></a>
+                                        </div><!-- End .product-action-vertical -->
+                                        <div class="product-action">
+                                            <a href="#" class="btn-product btn-cart"><span>add to cart</span></a>
+                                        </div><!-- End .product-action -->
+                                    </figure><!-- End .product-media -->
+                                    <div class="product-body">
+                                        <h3 class="product-title"><a href="product.html">@item.ProductName</a></h3><!-- End .product-title -->
+                                        <div class="product-price">
+                                            <span class="old-price">@item.ProductPrice</span>
+                                        </div><!-- End .product-price -->
+                                        <div class="ratings-container">
+                                            <div class="ratings">
+                                                <div class="ratings-val" style="width: 20%;"></div><!-- End .ratings-val -->
+                                            </div><!-- End .ratings -->
+                                            <span class="ratings-text">( 2 Reviews )</span>
+                                        </div><!-- End .rating-container -->
+                                    </div><!-- End .product-body -->
+                                </div><!-- End .product -->
+                            }
                         }
                     }
 
@@ -109,34 +146,71 @@
 
                         if (item.CategoriesID == 1)
                         {
-                            <div class="product product-7 text-center">
-                                <figure class="product-media">
-                                    <a href="/Product/Index/@item.ProductID">
-                                        <img src="@item.ProductImage" alt="Product image" class="product-image">
-                                        <img src="@item.ProductImage" alt="Product image" class="product-image-hover">
-                                    </a>
+                            if (item != null && item.Discounts != 0)
+                            {
+                                int percentComplete = (int)Math.Round((double)(@item.Discounts * @item.ProductPrice) / 100);
+                                int newprice = @item.ProductPrice - percentComplete;
+                                <div class="product product-7 text-center">
+                                    <figure class="product-media">
+                                        <a href="/Product/Index/@item.ProductID">
+                                            <img src="@item.ProductImage" alt="Product image" class="product-image">
+                                            <img src="@item.ProductImage" alt="Product image" class="product-image-hover">
+                                        </a>
 
-                                    <div class="product-action-vertical">
-                                        <a href="#" class="btn-product-icon btn-wishlist btn-expandable"><span>add to wishlist</span></a>
-                                        <a href="~/popup/quickView.html" class="btn-product-icon btn-quickview" title="Quick view"><span>Quick view</span></a>
-                                    </div><!-- End .product-action-vertical -->
-                                    <div class="product-action">
-                                        <a href="#" class="btn-product btn-cart"><span>add to cart</span></a>
-                                    </div><!-- End .product-action -->
-                                </figure><!-- End .product-media -->
-                                <div class="product-body">
-                                    <h3 class="product-title"><a href="product.html">@item.ProductName</a></h3><!-- End .product-title -->
-                                    <div class="product-price">
-                                        @item.ProductPrice
-                                    </div><!-- End .product-price -->
-                                    <div class="ratings-container">
-                                        <div class="ratings">
-                                            <div class="ratings-val" style="width: 20%;"></div><!-- End .ratings-val -->
-                                        </div><!-- End .ratings -->
-                                        <span class="ratings-text">( 2 Reviews )</span>
-                                    </div><!-- End .rating-container -->
-                                </div><!-- End .product-body -->
-                            </div><!-- End .product -->
+                                        <div class="product-action-vertical">
+                                            <a href="#" class="btn-product-icon btn-wishlist btn-expandable"><span>add to wishlist</span></a>
+                                            <a href="~/popup/quickView.html" class="btn-product-icon btn-quickview" title="Quick view"><span>Quick view</span></a>
+                                        </div><!-- End .product-action-vertical -->
+                                        <div class="product-action">
+                                            <a href="#" class="btn-product btn-cart"><span>add to cart</span></a>
+                                        </div><!-- End .product-action -->
+                                    </figure><!-- End .product-media -->
+                                    <div class="product-body">
+                                        <h3 class="product-title"><a href="product.html">@item.ProductName</a></h3><!-- End .product-title -->
+                                        <div class="product-price">
+                                            <span class="new-price">@newprice</span>
+                                            <span class="old-price">@item.ProductPrice</span>
+                                        </div><!-- End .product-price -->
+                                        <div class="ratings-container">
+                                            <div class="ratings">
+                                                <div class="ratings-val" style="width: 20%;"></div><!-- End .ratings-val -->
+                                            </div><!-- End .ratings -->
+                                            <span class="ratings-text">( 2 Reviews )</span>
+                                        </div><!-- End .rating-container -->
+                                    </div><!-- End .product-body -->
+                                </div><!-- End .product -->
+                            }
+                            else
+                            {
+                                <div class="product product-7 text-center">
+                                    <figure class="product-media">
+                                        <a href="/Product/Index/@item.ProductID">
+                                            <img src="@item.ProductImage" alt="Product image" class="product-image">
+                                            <img src="@item.ProductImage" alt="Product image" class="product-image-hover">
+                                        </a>
+
+                                        <div class="product-action-vertical">
+                                            <a href="#" class="btn-product-icon btn-wishlist btn-expandable"><span>add to wishlist</span></a>
+                                            <a href="~/popup/quickView.html" class="btn-product-icon btn-quickview" title="Quick view"><span>Quick view</span></a>
+                                        </div><!-- End .product-action-vertical -->
+                                        <div class="product-action">
+                                            <a href="#" class="btn-product btn-cart"><span>add to cart</span></a>
+                                        </div><!-- End .product-action -->
+                                    </figure><!-- End .product-media -->
+                                    <div class="product-body">
+                                        <h3 class="product-title"><a href="product.html">@item.ProductName</a></h3><!-- End .product-title -->
+                                        <div class="product-price">
+                                            <span class="old-price">@item.ProductPrice</span>
+                                        </div><!-- End .product-price -->
+                                        <div class="ratings-container">
+                                            <div class="ratings">
+                                                <div class="ratings-val" style="width: 20%;"></div><!-- End .ratings-val -->
+                                            </div><!-- End .ratings -->
+                                            <span class="ratings-text">( 2 Reviews )</span>
+                                        </div><!-- End .rating-container -->
+                                    </div><!-- End .product-body -->
+                                </div><!-- End .product -->
+                            }
                         }
 
 

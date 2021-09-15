@@ -17,10 +17,14 @@ namespace BH.Models
         public List<StoreModel> StoreList { get; set; }
         public List<DealModel> DealList { get; set; }
         public DealModel Deal { get; set; }
-        public List<DealModel> dealsofTheday { get; set; }
         public List<ProductModel> DealsofthedayProductList { get; set; }
+        public List<CartModel> CartList { get; set; }
+        public CartModel Cart { get; set; }
+        public List<ProductModel> ProductfromCart { get; set; }
 
         public ProductModel Product { get; set; }
+        public CartModel InsertCart { get; set; }
+        public ProductModel GetProductById { get; set; }
         public List<ProductGalleryModel> ProductGallery { get; set; }
         public List<ProductCategoriesModel> Categories { get; set; }
     }

@@ -28,6 +28,7 @@
                             }'>
         @foreach (var trending in Model.TrendingList)
         {
+
             <div class="product product-7 text-center">
                 <figure class="product-media">
                     <a href="/Product/Index/@trending.ProductID">
@@ -46,9 +47,24 @@
                         <a href="#">@trending.ProductName</a>
                     </div><!-- End .product-cat -->
                     <h3 class="product-title"><a href="product.html">@trending.ProductDescription</a></h3><!-- End .product-title -->
-                    <div class="product-price">
-                        @trending.ProductPrice
-                    </div><!-- End .product-price -->
+
+                    @if (trending != null && trending.Discounts != 0)
+                    {
+                        int percentComplete = (int)Math.Round((double)(@trending.Discounts * @trending.ProductPrice) / 100);
+                        int newprice = @trending.ProductPrice - percentComplete;
+                        <div class="product-price">
+                            <span class="new-price">@newprice</span>
+                            <span class="old-price">@trending.ProductPrice</span>
+                        </div><!-- End .product-price -->
+                    }
+                    else
+                    {
+                        <div class="product-price">
+                            <span class="old-price">@trending.ProductPrice</span>
+                        </div><!-- End .product-price --> 
+                    }
+
+
                     <div class="product-nav product-nav-thumbs">
                         <a href="#" class="active">
                             <img src="@trending.ProductImage" alt="product desc">

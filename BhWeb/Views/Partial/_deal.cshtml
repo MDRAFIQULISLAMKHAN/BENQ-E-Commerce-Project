@@ -1,0 +1,74 @@
+﻿@using System.Threading
+@model BH.Models.PublicViewModel
+@{
+    int Count = 0;
+
+}
+<style>
+    .old-price-deal {
+        color: #000000;
+        text-decoration: line-through;
+    }
+</style>
+<div class="col-sm-12 col-md-8 col-lg-6">
+    <div class="deal-content text-center">
+        <h4>Limited quantities. </h4>
+        <h2>Deal of the Day</h2>
+        <div class="deal-countdown" data-until="+11h"></div><!-- End .deal-countdown -->
+        <div class="deal">
+
+
+            @foreach (var item in Model.DealList)
+            {
+
+                if (Count == 0)
+                {
+                    <div class="row justify-content-center">
+                        <p>
+                            @item.StartingTime &nbsp &nbsp
+                        </p>
+                        to
+                        <p>&nbsp &nbsp @item.EndingTime</p>
+                    </div>
+
+                }
+                Count++;
+            }
+
+
+
+        </div><!-- End .deal-countdown -->
+    </div><!-- End .deal-content -->
+    <div class="row deal-products">
+        @foreach (var deal in Model.DealsofthedayProductList)
+        {
+
+            <div class="col-6 deal-product text-center">
+                <figure class="product-media">
+                    <a href="/Product/Index/@deal.ProductID">
+
+                        <img src="@deal.ProductImage" alt="Product image" class="product-image">
+                    </a>
+                </figure><!-- End .product-media -->
+                <div class="product-body">
+                    <h3 class="product-title"><a href="/Product/Index/@deal.ProductID">@deal.ProductName</a></h3><!-- End .product-title -->
+                    <div class="product-price">
+                        @foreach (var item in Model.DealList)
+                        {
+                            if (deal.ProductID == item.ProductID)
+                            {
+                                <span class="new-price">@item.NewPrice</span>
+                            }
+
+                        }
+                        <span class="old-price-deal">@deal.ProductPrice</span>
+                    </div><!-- End .product-price -->
+                </div><!-- End .product-body -->
+                <a href="category.html" class="action">shop now</a>
+            </div>
+
+
+        }
+    </div>
+
+</div><!-- End .col-lg-5 -->
